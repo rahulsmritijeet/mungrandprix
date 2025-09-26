@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUN GRAND PRIX - Sponsors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #0a0a0f;
+            --primary-blue: #2563eb;
+            --primary-red: #dc2626;
+            --text-primary: #f0f0f0;
+            --text-secondary: #808080;
+            --netflix-red: #E50914;
+            --shadow-dark: rgba(0, 0, 0, 0.9);
+            --shadow-light: rgba(37, 99, 235, 0.1);
+        }
+
+        html, body {
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(220, 38, 38, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        /* Background Logos */
+        .bg-logos {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-logo {
+            position: absolute;
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            font-size: 10rem;
+            opacity: 0.02;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        /* Netflix Background Logo */
+        .bg-logo.netflix { 
+            color: #E50914; 
+            top: 20%; 
+            left: 10%;
+            transform: rotate(-15deg);
+            animation: float1 25s infinite ease-in-out;
+        }
+        
+        .bg-logo.samsung { 
+            color: #1c6aff; 
+            top: 60%; 
+            right: 15%;
+            transform: rotate(20deg);
+            animation: float2 30s infinite ease-in-out;
+        }
+        
+        .bg-logo.pw { 
+            color: #8a2be2; 
+            bottom: 30%; 
+            left: 30%;
+            transform: rotate(-25deg);
+            animation: float3 28s infinite ease-in-out;
+        }
+        
+        .bg-logo.prime { 
+            color: #00a8e1; 
+            top: 40%; 
+            right: 35%;
+            transform: rotate(15deg);
+            animation: float1 32s infinite ease-in-out reverse;
+        }
+        
+        .bg-logo.feastables { 
+            color: #8b4513; 
+            bottom: 20%; 
+            right: 25%;
+            transform: rotate(-20deg);
+            animation: float2 27s infinite ease-in-out;
+        }
+        
+        .bg-logo.boat { 
+            color: #ff0000; 
+            top: 15%; 
+            left: 45%;
+            transform: rotate(25deg);
+            animation: float3 26s infinite ease-in-out reverse;
+        }
+        
+        .bg-logo.tcs { 
+            color: #00ff7f; 
+            bottom: 40%; 
+            left: 60%;
+            transform: rotate(-10deg);
+            animation: float1 29s infinite ease-in-out;
+        }
+        
+        .bg-logo.hbo { 
+            color: #8a2be2; 
+            top: 70%; 
+            left: 20%;
+            transform: rotate(30deg);
+            animation: float2 31s infinite ease-in-out reverse;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: rotate(-15deg) translateY(0px); }
+            50% { transform: rotate(-15deg) translateY(-30px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: rotate(20deg) translateX(0px); }
+            50% { transform: rotate(20deg) translateX(30px); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: rotate(-25deg) translate(0, 0); }
+            50% { transform: rotate(-25deg) translate(20px, -20px); }
+        }
+
+        /* Main Layout */
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header - Top */
+        .header-section {
+            text-align: center;
+            padding: 40px 20px 30px;
+            background: linear-gradient(180deg, 
+                rgba(0, 0, 0, 0.95) 0%, 
+                rgba(0, 0, 0, 0.8) 80%, 
+                transparent 100%);
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-title {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--primary-blue), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* Scrollable Content Area */
+        .scroll-wrapper {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scroll-container {
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+        }
+
+        /* Navigation Buttons */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(10, 10, 15, 0.9);
+            border: 2px solid var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-button:hover {
+            background: var(--primary-blue);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+        }
+
+        .nav-button.prev {
+            left: 30px;
+        }
+
+        .nav-button.next {
+            right: 30px;
+        }
+
+        .nav-button::before {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .nav-button.prev::before {
+            border-width: 12px 16px 12px 0;
+            border-color: transparent var(--text-primary) transparent transparent;
+            margin-right: 4px;
+        }
+
+        .nav-button.next::before {
+            border-width: 12px 0 12px 16px;
+            border-color: transparent transparent transparent var(--text-primary);
+            margin-left: 4px;
+        }
+
+        .nav-button:hover::before {
+            border-color: transparent var(--bg-black) transparent transparent;
+        }
+
+        .nav-button.next:hover::before {
+            border-color: transparent transparent transparent var(--bg-black);
+        }
+
+        .nav-button.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav-button.disabled:hover {
+            background: rgba(10, 10, 15, 0.9);
+            transform: translateY(-50%);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Sponsors Container */
+        .sponsors-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0 120px;
+            gap: 40px;
+        }
+
+        /* Sponsor Card Base */
+        .sponsor-card {
+            background: linear-gradient(145deg, rgba(10, 10, 10, 0.95), rgba(5, 5, 5, 0.95));
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                10px 10px 20px rgba(0, 0, 0, 0.8),
+                -10px -10px 20px rgba(20, 20, 20, 0.3),
+                inset 1px 1px 2px rgba(37, 99, 235, 0.05);
+            border-radius: 25px;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            padding: 40px;
+            width: 320px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .sponsor-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Background watermark for each card */
+        .sponsor-card::after {
+            content: attr(data-logo);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 900;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .sponsor-logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sponsor-tagline {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sponsor-card:hover .sponsor-tagline {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Netflix Special Card */
+        .netflix-card {
+            width: 640px;
+            height: 450px;
+            background: linear-gradient(145deg, rgba(26, 0, 0, 0.95), rgba(10, 0, 0, 0.95));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .netflix-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--netflix-red) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+        }
+
+        .netflix-shows {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-areas: 
+                "wednesday squid"
+                "money alice"
+                "stranger stranger";
+            gap: 10px;
+            padding: 20px;
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+
+        .netflix-card:hover .netflix-shows {
+            opacity: 0.3;
+        }
+
+        .show-icon {
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: rgba(229, 9, 20, 0.1);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+
+        .wednesday { grid-area: wednesday; }
+        .squid { grid-area: squid; }
+        .money { grid-area: money; }
+        .alice { grid-area: alice; }
+        .stranger { grid-area: stranger; }
+
+        .netflix-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .netflix-logo {
+            color: var(--netflix-red);
+            font-size: 3rem;
+            text-shadow: 0 0 20px rgba(229, 9, 20, 0.8);
+        }
+
+        /* Individual Sponsor Styles */
+        .samsung-card {
+            background: linear-gradient(145deg, rgba(0, 8, 20, 0.95), rgba(0, 3, 8, 0.95));
+        }
+
+        .samsung-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(28, 106, 255, 0.3);
+        }
+
+        .pw-card {
+            background: linear-gradient(145deg, rgba(10, 0, 20, 0.95), rgba(5, 0, 8, 0.95));
+        }
+
+        .pw-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(138, 43, 226, 0.3);
+        }
+
+        .prime-card {
+            background: linear-gradient(145deg, rgba(0, 10, 20, 0.95), rgba(0, 5, 8, 0.95));
+        }
+
+        .prime-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(0, 168, 225, 0.3);
+        }
+
+        .feastables-card {
+            background: linear-gradient(145deg, rgba(20, 10, 0, 0.95), rgba(8, 5, 0, 0.95));
+        }
+
+        .feastables-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(139, 69, 19, 0.3);
+        }
+
+        .boat-card {
+            background: linear-gradient(145deg, rgba(20, 0, 0, 0.95), rgba(8, 0, 0, 0.95));
+        }
+
+        .boat-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .tcs-card {
+            background: linear-gradient(145deg, rgba(0, 20, 10, 0.95), rgba(0, 8, 5, 0.95));
+        }
+
+        .tcs-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(0, 255, 127, 0.2);
+        }
+
+        .hbo-card {
+            background: linear-gradient(145deg, rgba(10, 0, 20, 0.95), rgba(5, 0, 8, 0.95));
+        }
+
+        .hbo-card:hover {
+            box-shadow: 
+                10px 10px 30px rgba(0, 0, 0, 0.9),
+                -10px -10px 30px rgba(20, 20, 20, 0.4),
+                0 20px 40px rgba(138, 43, 226, 0.3);
+        }
+
+        /* Loading Animation */
+        .sponsor-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .sponsor-card:nth-child(1) { animation-delay: 0.1s; }
+        .sponsor-card:nth-child(2) { animation-delay: 0.2s; }
+        .sponsor-card:nth-child(3) { animation-delay: 0.3s; }
+        .sponsor-card:nth-child(4) { animation-delay: 0.4s; }
+        .sponsor-card:nth-child(5) { animation-delay: 0.5s; }
+        .sponsor-card:nth-child(6) { animation-delay: 0.6s; }
+        .sponsor-card:nth-child(7) { animation-delay: 0.7s; }
+        .sponsor-card:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Scrollbar Styling */
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: rgba(10, 10, 15, 0.5);
+            border-radius: 4px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(90deg, var(--primary-blue), var(--primary-red));
+            border-radius: 4px;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(90deg, var(--primary-red), var(--primary-blue));
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .header-section {
+                padding: 30px 20px 20px;
+            }
+
+            .sponsors-container {
+                padding: 0 80px;
+            }
+
+            .nav-button {
+                width: 50px;
+                height: 50px;
+            }
+
+            .nav-button.prev {
+                left: 15px;
+            }
+
+            .nav-button.next {
+                right: 15px;
+            }
+
+            .sponsor-card {
+                width: 280px;
+                height: 350px;
+            }
+
+            .netflix-card {
+                width: 560px;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .bg-logo {
+                font-size: 6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Logo Pattern -->
+    <div class="bg-logos">
+        <div class="bg-logo netflix">NETFLIX</div>
+        <div class="bg-logo samsung">SAMSUNG</div>
+        <div class="bg-logo pw">PW</div>
+        <div class="bg-logo prime">PRIME</div>
+        <div class="bg-logo feastables">FEAST</div>
+        <div class="bg-logo boat">boAt</div>
+        <div class="bg-logo tcs">TCS</div>
+        <div class="bg-logo hbo">HBO</div>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- Top Header -->
+        <div class="header-section">
+            <h1 class="main-title">OUR SPONSORS</h1>
+            <p class="subtitle">Powering the future of diplomacy</p>
+        </div>
+
+        <!-- Scrollable Content with Navigation -->
+        <div class="scroll-wrapper">
+            <!-- Navigation Buttons -->
+            <button class="nav-button prev" id="prevBtn" title="Previous"></button>
+            <button class="nav-button next" id="nextBtn" title="Next"></button>
+
+            <!-- Scroll Container -->
+            <div class="scroll-container" id="scrollContainer">
+                <!-- Sponsors Container -->
+                <div class="sponsors-container">
+                    <!-- Netflix Special Card -->
+                    <div class="sponsor-card netflix-card" data-logo="NETFLIX">
+                        <div class="netflix-shows">
+                            <div class="show-icon wednesday">🕷️</div>
+                            <div class="show-icon squid">🎯</div>
+                            <div class="show-icon money">💰</div>
+                            <div class="show-icon alice">🃏</div>
+                            <div class="show-icon stranger">🌌</div>
+                        </div>
+                        <div class="netflix-content">
+                            <div class="sponsor-logo netflix-logo">NETFLIX</div>
+                            <p class="sponsor-tagline">See What's Next</p>
+                        </div>
+                    </div>
+
+                    <!-- Samsung -->
+                    <div class="sponsor-card samsung-card" data-logo="SAMSUNG">
+                        <div class="sponsor-logo" style="color: #1c6aff;">SAMSUNG</div>
+                        <p class="sponsor-tagline">Do What You Can't</p>
+                    </div>
+
+                    <!-- Physics Wallah -->
+                    <div class="sponsor-card pw-card" data-logo="PW">
+                        <div class="sponsor-logo" style="color: #8a2be2;">PHYSICS WALLAH</div>
+                        <p class="sponsor-tagline">Revolutionizing Education</p>
+                    </div>
+
+                    <!-- Prime Video -->
+                    <div class="sponsor-card prime-card" data-logo="PRIME">
+                        <div class="sponsor-logo" style="color: #00a8e1;">PRIME VIDEO</div>
+                        <p class="sponsor-tagline">Great Entertainment</p>
+                    </div>
+
+                    <!-- Feastables -->
+                    <div class="sponsor-card feastables-card" data-logo="FEASTABLES">
+                        <div class="sponsor-logo" style="color: #8b4513;">FEASTABLES</div>
+                        <p class="sponsor-tagline">Delicious & Better For You</p>
+                    </div>
+
+                    <!-- boAt -->
+                    <div class="sponsor-card boat-card" data-logo="boAt">
+                        <div class="sponsor-logo" style="color: #ff0000;">boAt</div>
+                        <p class="sponsor-tagline">Plug Into Nirvana</p>
+                    </div>
+
+                    <!-- TCS -->
+                    <div class="sponsor-card tcs-card" data-logo="TCS">
+                        <div class="sponsor-logo" style="color: #00ff7f;">TCS</div>
+                        <p class="sponsor-tagline">Building on Belief</p>
+                    </div>
+
+                    <!-- HBO Max -->
+                    <div class="sponsor-card hbo-card" data-logo="HBO">
+                        <div class="sponsor-logo" style="color: #8a2be2;">HBO MAX</div>
+                        <p class="sponsor-tagline">Where HBO Meets So Much More</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Navigation
+        const scrollContainer = document.getElementById('scrollContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Scroll amount (width of one card plus gap)
+        const scrollAmount = 360;
+
+        // Update button states
+        function updateButtonStates() {
+            const isAtStart = scrollContainer.scrollLeft <= 0;
+            const isAtEnd = scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth - 10;
+
+            prevBtn.classList.toggle('disabled', isAtStart);
+            nextBtn.classList.toggle('disabled', isAtEnd);
+        }
+
+        // Scroll functions
+        prevBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            scrollContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        // Update button states on scroll
+        scrollContainer.addEventListener('scroll', updateButtonStates);
+        updateButtonStates();
+
+        // Interactive hover effects
+        const cards = document.querySelectorAll('.sponsor-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-20px) scale(1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+            });
+        });
+
+        // Netflix card special effects
+        const netflixCard = document.querySelector('.netflix-card');
+        const shows = ['🕷️', '🎯', '💰', '🃏', '🌌'];
+        let currentShow = 0;
+
+        setInterval(() => {
+            const showIcons = netflixCard.querySelectorAll('.show-icon');
+            showIcons.forEach((icon, index) => {
+                if (index === currentShow) {
+                    icon.style.transform = 'scale(1.2)';
+                    icon.style.opacity = '0.6';
+                } else {
+                    icon.style.transform = 'scale(1)';
+                    icon.style.opacity = '0.3';
+                }
+            });
+            currentShow = (currentShow + 1) % shows.length;
+        }, 2000);
+
+        // Smooth horizontal scroll with mouse wheel
+        scrollContainer.addEventListener('wheel', (e) => {
+            e.preventDefault();
+            scrollContainer.scrollLeft += e.deltaY;
+            updateButtonStates();
+        });
+
+        // Background logos parallax
+        const bgLogos = document.querySelectorAll('.bg-logo');
+        
+        scrollContainer.addEventListener('scroll', () => {
+            const scrolled = scrollContainer.scrollLeft;
+            
+            bgLogos.forEach((logo, index) => {
+                const speed = 0.03 + (index * 0.01);
+                const baseTransform = window.getComputedStyle(logo).transform;
+                logo.style.transform = `${baseTransform} translateX(${-scrolled * speed}px)`;
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevBtn.click();
+            } else if (e.key === 'ArrowRight') {
+                nextBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>

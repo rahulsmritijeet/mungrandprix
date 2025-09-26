@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model United Nations - Committee Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Exo+2:wght@300;400;700&family=Audiowide&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', 'Space Mono', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0f1f 25%, #0f1823 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Dynamic Island Navbar */
+        nav {
+            position: sticky;
+            top: 80px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            margin-bottom: 2rem;
+        }
+
+        .nav-island {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 100px rgba(131, 56, 236, 0.1);
+            max-width: fit-content;
+            animation: floatIsland 6s ease-in-out infinite;
+        }
+
+        @keyframes floatIsland {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Interstellar Font for Navbar */
+        nav button {
+            font-family: 'Audiowide', 'Rajdhani', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            color: #a0a0a0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        nav button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.4), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        nav button:hover::before {
+            width: 150px;
+            height: 150px;
+        }
+
+        nav button:hover {
+            color: #fff;
+            border-color: rgba(131, 56, 236, 0.5);
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(131, 56, 236, 0.8);
+        }
+
+        nav button.active {
+            background: linear-gradient(145deg, rgba(131, 56, 236, 0.2), rgba(255, 0, 110, 0.2));
+            border-color: rgba(255, 0, 110, 0.5);
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+        }
+
+        /* Container - More Open */
+        .container {
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Tab Styles */
+        .tab {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            display: none;
+            animation: morphFadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .tab.active {
+            display: block;
+        }
+
+        @keyframes morphFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Heading with Space Font */
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.3));
+            animation: spaceGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes spaceGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.3)) brightness(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 50px rgba(131, 56, 236, 0.5)) brightness(1.1);
+            }
+        }
+
+        /* Party Full Name Display */
+        .party-full-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 2rem 0;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(131, 56, 236, 0.5);
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Table with Glassmorphism */
+        table {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 80px rgba(131, 56, 236, 0.1);
+        }
+
+        th {
+            font-family: 'Space Mono', monospace;
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            font-family: 'Exo 2', sans-serif;
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        tr {
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        tr::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff006e, #3a86ff);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        tr:hover::before {
+            transform: scaleY(1);
+        }
+
+        tr:hover td {
+            background: rgba(131, 56, 236, 0.08);
+            color: #fff;
+        }
+
+        /* Status Row Styles */
+        tr.status-occupied td {
+            background: rgba(251, 191, 36, 0.1) !important;
+            color: #fbbf24 !important;
+        }
+
+        tr.status-occupied td:last-child {
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        tr.status-confirmed td {
+            background: rgba(239, 68, 68, 0.1) !important;
+            color: #ff6b6b !important;
+        }
+
+        tr.status-confirmed td:last-child {
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        tr.status-available td {
+            background: rgba(255, 255, 255, 0.02) !important;
+            color: #e0e0e0 !important;
+        }
+
+        .serial-no {
+            width: 80px;
+            text-align: center;
+            font-weight: 700;
+            color: #8338ec;
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* Sub-tabs for MoM and AIPPM */
+        .sub-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .sub-tab-btn {
+            font-family: 'Space Mono', monospace;
+            background: rgba(20, 20, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 56, 236, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 15px;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 
+                5px 5px 15px rgba(0, 0, 0, 0.4),
+                -5px -5px 15px rgba(40, 40, 60, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sub-tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .sub-tab-btn:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        .sub-tab-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: rgba(255, 0, 110, 0.5);
+            color: #fff;
+            box-shadow: 
+                8px 8px 25px rgba(0, 0, 0, 0.5),
+                -8px -8px 25px rgba(50, 50, 70, 0.2),
+                0 0 30px rgba(131, 56, 236, 0.3);
+        }
+
+        .sub-tab-btn.active {
+            background: linear-gradient(145deg, rgba(131, 56, 236, 0.2), rgba(255, 0, 110, 0.2));
+            border-color: #ff006e;
+            color: #fff;
+            box-shadow: 
+                inset 5px 5px 15px rgba(0, 0, 0, 0.4),
+                inset -5px -5px 15px rgba(131, 56, 236, 0.1),
+                0 0 30px rgba(255, 0, 110, 0.3);
+        }
+
+        .sub-tab-content {
+            display: none;
+            animation: morphFadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .sub-tab-content.active {
+            display: block;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 10, 10, 0.4);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff006e, #3a86ff);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-island {
+                padding: 0.6rem 1rem;
+                border-radius: 40px;
+            }
+
+            nav button {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.8rem 0.5rem;
+            }
+
+            .sub-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sub-tab-btn {
+                width: 250px;
+            }
+        }
+
+        /* Floating particles effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <nav>
+        <div class="nav-island">
+            <ul>
+                <li><button onclick="showTab('unga')" class="active">UNGA</button></li>
+                <li><button onclick="showTab('unsc')">UNSC</button></li>
+                <li><button onclick="showTab('unhrc')">UNHRC</button></li>
+                <li><button onclick="showTab('uncsw')">UNCSW</button></li>
+                <li><button onclick="showTab('who')">WHO</button></li>
+                <li><button onclick="showTab('mom')">MoM</button></li>
+                <li><button onclick="showTab('aippm')">AIPPM</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- UNGA Tab -->
+        <div id="unga" class="tab active">
+            <h1>United Nations General Assembly</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="unga-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNSC Tab -->
+        <div id="unsc" class="tab">
+            <h1>United Nations Security Council</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="unsc-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNHRC Tab -->
+        <div id="unhrc" class="tab">
+            <h1>UN Human Rights Council</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Region</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="unhrc-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNCSW Tab -->
+        <div id="uncsw" class="tab">
+            <h1>UN Commission on Status of Women</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Region</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="uncsw-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- WHO Tab -->
+        <div id="who" class="tab">
+            <h1>World Health Organization</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="who-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- MOM Tab -->
+        <div id="mom" class="tab">
+            <h1>Ministry of Magic</h1>
+            
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active" onclick="showSubTab('auror', 'mom')">Auror Office</button>
+                <button class="sub-tab-btn" onclick="showSubTab('mysteries', 'mom')">Dept. of Mysteries</button>
+                <button class="sub-tab-btn" onclick="showSubTab('law', 'mom')">Magical Law</button>
+                <button class="sub-tab-btn" onclick="showSubTab('games', 'mom')">Games & Sports</button>
+                <button class="sub-tab-btn" onclick="showSubTab('wizengamot', 'mom')">Wizengamot</button>
+            </div>
+
+            <!-- Auror Office -->
+            <div id="auror" class="sub-tab-content active">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="auror-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Department of Mysteries -->
+            <div id="mysteries" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Division</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mysteries-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Magical Law Enforcement -->
+            <div id="law" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="law-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Magical Games and Sports -->
+            <div id="games" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Sport/Division</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="games-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Wizengamot -->
+            <div id="wizengamot" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wizengamot-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AIPPM Tab -->
+        <div id="aippm" class="tab">
+            <h1>All India Political Party Meeting</h1>
+            
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active" onclick="showSubTab('bjp', 'aippm')" data-fullname="Bharatiya Janata Party">BJP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('inc', 'aippm')" data-fullname="Indian National Congress">INC</button>
+                <button class="sub-tab-btn" onclick="showSubTab('aap', 'aippm')" data-fullname="Aam Aadmi Party">AAP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('tmc', 'aippm')" data-fullname="All India Trinamool Congress">TMC</button>
+                <button class="sub-tab-btn" onclick="showSubTab('dmk', 'aippm')" data-fullname="Dravida Munnetra Kazhagam">DMK</button>
+                <button class="sub-tab-btn" onclick="showSubTab('sp', 'aippm')" data-fullname="Samajwadi Party">SP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('bsp', 'aippm')" data-fullname="Bahujan Samaj Party">BSP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('ncp', 'aippm')" data-fullname="Nationalist Congress Party">NCP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('cpi', 'aippm')" data-fullname="Communist Party of India (Marxist)">CPI(M)</button>
+                <button class="sub-tab-btn" onclick="showSubTab('tdp', 'aippm')" data-fullname="Telugu Desam Party">TDP</button>
+            </div>
+
+            <!-- BJP -->
+            <div id="bjp" class="sub-tab-content active">
+                <h2 class="party-full-name">Bharatiya Janata Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bjp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- INC -->
+            <div id="inc" class="sub-tab-content">
+                <h2 class="party-full-name">Indian National Congress</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inc-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- AAP -->
+            <div id="aap" class="sub-tab-content">
+                <h2 class="party-full-name">Aam Aadmi Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="aap-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- TMC -->
+            <div id="tmc" class="sub-tab-content">
+                <h2 class="party-full-name">All India Trinamool Congress</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tmc-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- DMK -->
+            <div id="dmk" class="sub-tab-content">
+                <h2 class="party-full-name">Dravida Munnetra Kazhagam</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dmk-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- SP -->
+            <div id="sp" class="sub-tab-content">
+                <h2 class="party-full-name">Samajwadi Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- BSP -->
+            <div id="bsp" class="sub-tab-content">
+                <h2 class="party-full-name">Bahujan Samaj Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bsp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- NCP -->
+            <div id="ncp" class="sub-tab-content">
+                <h2 class="party-full-name">Nationalist Congress Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ncp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- CPI(M) -->
+            <div id="cpi" class="sub-tab-content">
+                <h2 class="party-full-name">Communist Party of India (Marxist)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cpi-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- TDP -->
+            <div id="tdp" class="sub-tab-content">
+                <h2 class="party-full-name">Telugu Desam Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tdp-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Data for all committees
+        const committees = {
+            unga: [
+                'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria',
+                'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan',
+                'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia',
+                'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo', 'Costa Rica',
+                'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Democratic Republic of Congo', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador',
+                'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France',
+                'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau',
+                'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland',
+                'Israel', 'Italy', 'Ivory Coast', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait',
+                'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg',
+                'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico',
+                'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru',
+                'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Macedonia', 'Norway', 'Oman',
+                'Pakistan', 'Palau', 'Palestine', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal',
+                'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 
+                'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 
+                'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 
+                'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Tajikistan', 'Tanzania', 'Thailand', 
+                'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 
+                'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 
+                'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
+            ],
+            unsc: [
+                { country: 'China', type: 'Permanent' },
+                { country: 'France', type: 'Permanent' },
+                { country: 'Russia', type: 'Permanent' },
+                { country: 'United Kingdom', type: 'Permanent' },
+                { country: 'United States', type: 'Permanent' },
+                { country: 'Algeria', type: 'Non-Permanent' },
+                { country: 'Ecuador', type: 'Non-Permanent' },
+                { country: 'Guyana', type: 'Non-Permanent' },
+                { country: 'Japan', type: 'Non-Permanent' },
+                { country: 'Malta', type: 'Non-Permanent' },
+                { country: 'Mozambique', type: 'Non-Permanent' },
+                { country: 'Republic of Korea', type: 'Non-Permanent' },
+                { country: 'Sierra Leone', type: 'Non-Permanent' },
+                { country: 'Slovenia', type: 'Non-Permanent' },
+                { country: 'Switzerland', type: 'Non-Permanent' }
+            ],
+            unhrc: [
+                { country: 'Algeria', region: 'Africa' },
+                { country: 'Benin', region: 'Africa' },
+                { country: 'Cameroon', region: 'Africa' },
+                { country: 'Eritrea', region: 'Africa' },
+                { country: 'Gabon', region: 'Africa' },
+                { country: 'Gambia', region: 'Africa' },
+                { country: 'Ivory Coast', region: 'Africa' },
+                { country: 'Kenya', region: 'Africa' },
+                { country: 'Malawi', region: 'Africa' },
+                { country: 'Morocco', region: 'Africa' },
+                { country: 'Senegal', region: 'Africa' },
+                { country: 'Somalia', region: 'Africa' },
+                { country: 'South Africa', region: 'Africa' },
+                { country: 'Bangladesh', region: 'Asia-Pacific' },
+                { country: 'China', region: 'Asia-Pacific' },
+                { country: 'India', region: 'Asia-Pacific' },
+                { country: 'Indonesia', region: 'Asia-Pacific' },
+                { country: 'Japan', region: 'Asia-Pacific' },
+                { country: 'Kazakhstan', region: 'Asia-Pacific' },
+                { country: 'Kuwait', region: 'Asia-Pacific' },
+                { country: 'Kyrgyzstan', region: 'Asia-Pacific' },
+                { country: 'Malaysia', region: 'Asia-Pacific' },
+                { country: 'Maldives', region: 'Asia-Pacific' },
+                { country: 'Pakistan', region: 'Asia-Pacific' },
+                { country: 'Qatar', region: 'Asia-Pacific' },
+                { country: 'United Arab Emirates', region: 'Asia-Pacific' },
+                { country: 'Vietnam', region: 'Asia-Pacific' },
+                { country: 'Czech Republic', region: 'Eastern Europe' },
+                { country: 'Georgia', region: 'Eastern Europe' },
+                { country: 'Lithuania', region: 'Eastern Europe' },
+                { country: 'Montenegro', region: 'Eastern Europe' },
+                { country: 'Romania', region: 'Eastern Europe' },
+                { country: 'Ukraine', region: 'Eastern Europe' },
+                { country: 'Argentina', region: 'Latin America' },
+                { country: 'Bolivia', region: 'Latin America' },
+                { country: 'Chile', region: 'Latin America' },
+                { country: 'Costa Rica', region: 'Latin America' },
+                { country: 'Cuba', region: 'Latin America' },
+                { country: 'Honduras', region: 'Latin America' },
+                { country: 'Mexico', region: 'Latin America' },
+                { country: 'Paraguay', region: 'Latin America' },
+                { country: 'Belgium', region: 'Western Europe' },
+                { country: 'Finland', region: 'Western Europe' },
+                { country: 'France', region: 'Western Europe' },
+                { country: 'Germany', region: 'Western Europe' },
+                { country: 'Luxembourg', region: 'Western Europe' },
+                { country: 'United Kingdom', region: 'Western Europe' }
+            ],
+            uncsw: [
+                { country: 'Algeria', region: 'Africa' },
+                { country: 'Cameroon', region: 'Africa' },
+                { country: 'Egypt', region: 'Africa' },
+                { country: 'Ghana', region: 'Africa' },
+                { country: 'Kenya', region: 'Africa' },
+                { country: 'Liberia', region: 'Africa' },
+                { country: 'Morocco', region: 'Africa' },
+                { country: 'Nigeria', region: 'Africa' },
+                { country: 'Senegal', region: 'Africa' },
+                { country: 'South Africa', region: 'Africa' },
+                { country: 'Tanzania', region: 'Africa' },
+                { country: 'Afghanistan', region: 'Asia-Pacific' },
+                { country: 'Australia', region: 'Asia-Pacific' },
+                { country: 'Bangladesh', region: 'Asia-Pacific' },
+                { country: 'China', region: 'Asia-Pacific' },
+                { country: 'India', region: 'Asia-Pacific' },
+                { country: 'Iran', region: 'Asia-Pacific' },
+                { country: 'Japan', region: 'Asia-Pacific' },
+                { country: 'Jordan', region: 'Asia-Pacific' },
+                { country: 'Lebanon', region: 'Asia-Pacific' },
+                { country: 'Malaysia', region: 'Asia-Pacific' },
+                { country: 'Mongolia', region: 'Asia-Pacific' },
+                { country: 'New Zealand', region: 'Asia-Pacific' },
+                { country: 'Philippines', region: 'Asia-Pacific' },
+                { country: 'Republic of Korea', region: 'Asia-Pacific' },
+                { country: 'Saudi Arabia', region: 'Asia-Pacific' },
+                { country: 'Thailand', region: 'Asia-Pacific' },
+                { country: 'Armenia', region: 'Eastern Europe' },
+                { country: 'Estonia', region: 'Eastern Europe' },
+                { country: 'Poland', region: 'Eastern Europe' },
+                { country: 'Russia', region: 'Eastern Europe' },
+                { country: 'Brazil', region: 'Latin America' },
+                { country: 'Colombia', region: 'Latin America' },
+                { country: 'Costa Rica', region: 'Latin America' },
+                { country: 'Dominican Republic', region: 'Latin America' },
+                { country: 'Mexico', region: 'Latin America' },
+                { country: 'Nicaragua', region: 'Latin America' },
+                { country: 'Austria', region: 'Western Europe' },
+                { country: 'Belgium', region: 'Western Europe' },
+                { country: 'Canada', region: 'Western Europe' },
+                { country: 'Denmark', region: 'Western Europe' },
+                { country: 'Germany', region: 'Western Europe' },
+                { country: 'Ireland', region: 'Western Europe' },
+                { country: 'Israel', region: 'Western Europe' },
+                { country: 'Spain', region: 'Western Europe' }
+            ],
+            who: [
+                'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan',
+                'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia',
+                'Brazil', 'Brunei', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Cook Islands',
+                'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Egypt', 'Finland', 'France', 'Germany',
+                'Ghana', 'Greece', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Japan',
+                'Jordan', 'Kenya', 'Kuwait', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Niue', 'Norway',
+                'Pakistan', 'Palestine', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Russia', 'Saudi Arabia', 'Singapore',
+                'South Africa', 'Spain', 'Sri Lanka', 'Sweden', 'Switzerland', 'Thailand', 'Turkey', 'United Arab Emirates', 
+                'United Kingdom', 'United States', 'Vietnam', 'Yemen', 'Zimbabwe'
+            ],
+            mom: {
+                auror: [
+                    { name: 'Harry Potter', position: 'Head Auror' },
+                    { name: 'Kingsley Shacklebolt', position: 'Senior Auror' },
+                    { name: 'Nymphadora Tonks', position: 'Auror' },
+                    { name: 'Alastor Moody', position: 'Retired Consultant' },
+                    { name: 'Ron Weasley', position: 'Auror' },
+                    { name: 'John Dawlish', position: 'Senior Auror' },
+                    { name: 'Gawain Robards', position: 'Office Head' },
+                    { name: 'Proudfoot', position: 'Auror' },
+                    { name: 'Savage', position: 'Auror' },
+                    { name: 'Williamson', position: 'Junior Auror' }
+                ],
+                mysteries: [
+                    { name: 'Croaker', division: 'Time Chamber' },
+                    { name: 'Bode', division: 'Hall of Prophecy' },
+                    { name: 'Augustus Rookwood', division: 'Brain Room' },
+                    { name: 'Unspeakable #7', division: 'Death Chamber' },
+                    { name: 'Unspeakable #12', division: 'Love Chamber' },
+                    { name: 'Unspeakable #23', division: 'Space Chamber' },
+                    { name: 'Saul Croaker', division: 'Head Unspeakable' },
+                    { name: 'Unspeakable #45', division: 'Thought Chamber' },
+                    { name: 'Unspeakable #67', division: 'Hall of Prophecy' },
+                    { name: 'Unspeakable #89', division: 'Time Research' }
+                ],
+                law: [
+                    { name: 'Amelia Bones', department: 'Department Head' },
+                    { name: 'Bartemius Crouch Sr.', department: 'Former Head' },
+                    { name: 'Pius Thicknesse', department: 'Department Head' },
+                    { name: 'Mafalda Hopkirk', department: 'Improper Use Office' },
+                    { name: 'Perkins', department: 'Misuse of Artifacts' },
+                    { name: 'Arthur Weasley', department: 'Muggle Protection' },
+                    { name: 'Bob Ogden', department: 'Law Squad' },
+                    { name: 'Tiberius Ogden', department: 'Wizengamot Admin' },
+                    { name: 'Dolores Umbridge', department: 'Senior Secretary' },
+                    { name: 'Albert Runcorn', department: 'Investigation' }
+                ],
+                games: [
+                    { name: 'Ludovic Bagman', sport: 'Department Head' },
+                    { name: 'Bertha Jorkins', sport: 'Assistant' },
+                    { name: 'Ali Bashir', sport: 'Flying Carpets' },
+                    { name: 'Hassan Mostafa', sport: 'Quidditch Referee' },
+                    { name: 'Royston Idlewind', sport: 'League Manager' },
+                    { name: 'Zamira Gulch', sport: 'Broom Control' },
+                    { name: 'Darren O\'Hare', sport: 'Gobstones' },
+                    { name: 'Josephina Flint', sport: 'Duelling' },
+                    { name: 'Hamish MacFarlan', sport: 'Quidditch Supplies' },
+                    { name: 'Cuthbert Mockridge', sport: 'Goblin Liaison' }
+                ],
+                wizengamot: [
+                    { name: 'Albus Dumbledore', position: 'Chief Warlock' },
+                    { name: 'Cornelius Fudge', position: 'Minister' },
+                    { name: 'Dolores Umbridge', position: 'Senior Secretary' },
+                    { name: 'Griselda Marchbanks', position: 'Elder' },
+                    { name: 'Tiberius Ogden', position: 'Elder' },
+                    { name: 'Amelia Bones', position: 'Department Head' },
+                    { name: 'Elphias Doge', position: 'Member' },
+                    { name: 'Augusta Longbottom', position: 'Member' },
+                    { name: 'Bartemius Crouch Sr.', position: 'Former Member' },
+                    { name: 'Percy Weasley', position: 'Junior Assistant' }
+                ]
+            },
+            aippm: {
+                bjp: [
+                    { name: 'Narendra Modi', position: 'Prime Minister' },
+                    { name: 'Amit Shah', position: 'Home Minister' },
+                    { name: 'Rajnath Singh', position: 'Defence Minister' },
+                    { name: 'Nirmala Sitharaman', position: 'Finance Minister' },
+                    { name: 'J.P. Nadda', position: 'Party President' },
+                    { name: 'Yogi Adityanath', position: 'UP Chief Minister' },
+                    { name: 'B.S. Yediyurappa', position: 'Karnataka Leader' },
+                    { name: 'Himanta Biswa Sarma', position: 'Assam CM' },
+                    { name: 'Shivraj Singh Chouhan', position: 'MP Leader' },
+                    { name: 'Piyush Goyal', position: 'Commerce Minister' }
+                ],
+                inc: [
+                    { name: 'Rahul Gandhi', position: 'Party Leader' },
+                    { name: 'Sonia Gandhi', position: 'Former President' },
+                    { name: 'Priyanka Gandhi', position: 'General Secretary' },
+                    { name: 'Mallikarjun Kharge', position: 'Party President' },
+                    { name: 'Shashi Tharoor', position: 'MP' },
+                    { name: 'P. Chidambaram', position: 'Senior Leader' },
+                    { name: 'Kapil Sibal', position: 'Former Minister' },
+                    { name: 'Jairam Ramesh', position: 'Spokesperson' },
+                    { name: 'Ashok Gehlot', position: 'Rajasthan CM' },
+                    { name: 'Sachin Pilot', position: 'Rajasthan Leader' }
+                ],
+                aap: [
+                    { name: 'Arvind Kejriwal', position: 'Party Convener' },
+                    { name: 'Manish Sisodia', position: 'Deputy CM' },
+                    { name: 'Bhagwant Mann', position: 'Punjab CM' },
+                    { name: 'Satyendar Jain', position: 'Minister' },
+                    { name: 'Atishi Marlena', position: 'MLA' },
+                    { name: 'Raghav Chadha', position: 'RS Member' },
+                    { name: 'Sanjay Singh', position: 'RS Member' },
+                    { name: 'Gopal Rai', position: 'Minister' },
+                    { name: 'Durgesh Pathak', position: 'MLA' },
+                    { name: 'Somnath Bharti', position: 'MLA' }
+                ],
+                tmc: [
+                    { name: 'Mamata Banerjee', position: 'Party Chief & CM' },
+                    { name: 'Abhishek Banerjee', position: 'General Secretary' },
+                    { name: 'Derek O\'Brien', position: 'RS Leader' },
+                    { name: 'Mahua Moitra', position: 'MP' },
+                    { name: 'Sukhendu Sekhar Ray', position: 'RS Member' },
+                    { name: 'Firhad Hakim', position: 'Mayor' },
+                    { name: 'Partha Chatterjee', position: 'Secretary General' },
+                    { name: 'Subrata Bakshi', position: 'State President' },
+                    { name: 'Kakoli Ghosh Dastidar', position: 'MP' },
+                    { name: 'Saugata Roy', position: 'MP' }
+                ],
+                dmk: [
+                    { name: 'M.K. Stalin', position: 'Chief Minister' },
+                    { name: 'Udhayanidhi Stalin', position: 'Minister' },
+                    { name: 'Kanimozhi', position: 'MP' },
+                    { name: 'T.R. Baalu', position: 'Parliamentary Leader' },
+                    { name: 'Duraimurugan', position: 'General Secretary' },
+                    { name: 'E.V. Velu', position: 'Minister' },
+                    { name: 'Palanivel Thiaga Rajan', position: 'Finance Minister' },
+                    { name: 'K. Ponmudy', position: 'Minister' },
+                    { name: 'Senthil Balaji', position: 'Minister' },
+                    { name: 'Ma Subramanian', position: 'Health Minister' }
+                ],
+                sp: [
+                    { name: 'Akhilesh Yadav', position: 'Party President' },
+                    { name: 'Mulayam Singh Yadav', position: 'Founder' },
+                    { name: 'Azam Khan', position: 'Senior Leader' },
+                    { name: 'Ram Gopal Yadav', position: 'General Secretary' },
+                    { name: 'Jaya Bachchan', position: 'RS Member' },
+                    { name: 'Dimple Yadav', position: 'MP' },
+                    { name: 'Shivpal Singh Yadav', position: 'Leader' },
+                    { name: 'Naresh Uttam', position: 'State President' },
+                    { name: 'Swami Prasad Maurya', position: 'Leader' },
+                    { name: 'Rajendra Chaudhary', position: 'Spokesperson' }
+                ],
+                bsp: [
+                    { name: 'Mayawati', position: 'Party President' },
+                    { name: 'Satish Chandra Mishra', position: 'General Secretary' },
+                    { name: 'Akash Anand', position: 'National Coordinator' },
+                    { name: 'Naseemuddin Siddiqui', position: 'Former Leader' },
+                    { name: 'Lalji Verma', position: 'Leader' },
+                    { name: 'Ramachal Rajbhar', position: 'RS Member' },
+                    { name: 'Girish Chandra', position: 'RS Member' },
+                    { name: 'Danish Ali', position: 'MP' },
+                    { name: 'Ritesh Pandey', position: 'MP' },
+                    { name: 'Kunwar Danish Ali', position: 'MP' }
+                ],
+                ncp: [
+                    { name: 'Sharad Pawar', position: 'Party President' },
+                    { name: 'Ajit Pawar', position: 'Leader' },
+                    { name: 'Supriya Sule', position: 'MP' },
+                    { name: 'Praful Patel', position: 'Senior Leader' },
+                    { name: 'Chhagan Bhujbal', position: 'Leader' },
+                    { name: 'Jayant Patil', position: 'State President' },
+                    { name: 'Dilip Walse Patil', position: 'Leader' },
+                    { name: 'Anil Deshmukh', position: 'Former Minister' },
+                    { name: 'Nawab Malik', position: 'Leader' },
+                    { name: 'Jitendra Awhad', position: 'Leader' }
+                ],
+                cpi: [
+                    { name: 'Sitaram Yechury', position: 'General Secretary' },
+                    { name: 'Brinda Karat', position: 'Politburo Member' },
+                    { name: 'D. Raja', position: 'General Secretary CPI' },
+                    { name: 'Prakash Karat', position: 'Former Gen Secretary' },
+                    { name: 'Mohammed Salim', position: 'Politburo Member' },
+                    { name: 'Subhashini Ali', position: 'Leader' },
+                    { name: 'Hannan Mollah', position: 'Leader' },
+                    { name: 'Nilotpal Basu', position: 'Leader' },
+                    { name: 'K. Balakrishnan', position: 'State Secretary' },
+                    { name: 'M.Y. Tarigami', position: 'Leader' }
+                ],
+                tdp: [
+                    { name: 'N. Chandrababu Naidu', position: 'Party President' },
+                    { name: 'Nara Lokesh', position: 'General Secretary' },
+                    { name: 'Kinjarapu Atchannaidu', position: 'Leader' },
+                    { name: 'Yanamala Ramakrishnudu', position: 'Senior Leader' },
+                    { name: 'Kala Venkata Rao', position: 'Leader' },
+                    { name: 'Payyavula Keshav', position: 'Leader' },
+                    { name: 'Somireddy Chandramohan Reddy', position: 'Leader' },
+                    { name: 'Buddha Venkanna', position: 'Leader' },
+                    { name: 'Varla Ramaiah', position: 'Leader' },
+                    { name: 'Pattabhi Ram', position: 'Spokesperson' }
+                ]
+            }
+        };
+
+        // Function to generate random status
+        function getRandomStatus() {
+            const rand = Math.random();
+            if (rand < 0.1) {
+                return { text: 'Confirmed', class: 'status-confirmed' };
+            } else if (rand < 0.35) {
+                return { text: 'Allotted', class: 'status-occupied' };
+            } else {
+                return { text: 'Available', class: 'status-available' };
+            }
+        }
+
+        // Populate UNGA
+        function populateUNGA() {
+            const tbody = document.getElementById('unga-tbody');
+            committees.unga.forEach((country, index) => {
+                const status = getRandomStatus();
+                const row = `
+                    <tr class="${status.class}">
+                        <td class="serial-no">${index + 1}</td>
+                        <td>${country}</td>
+                        <td>${status.text}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Populate UNSC
+        function populateUNSC() {
+            const tbody = document.getElementById('unsc-tbody');
+            committees.unsc.forEach((member, index) => {
+                const status = getRandomStatus();
+                const row = `
+                    <tr class="${status.class}">
+                        <td class="serial-no">${index + 1}</td>
+                        <td>${member.country}</td>
+                        <td>${member.type}</td>
+                        <td>${status.text}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Populate UNHRC
+        function populateUNHRC() {
+            const tbody = document.getElementById('unhrc-tbody');
+            committees.unhrc.forEach((member, index) => {
+                const status = getRandomStatus();
+                const row = `
+                    <tr class="${status.class}">
+                        <td class="serial-no">${index + 1}</td>
+                        <td>${member.country}</td>
+                        <td>${member.region}</td>
+                        <td>${status.text}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Populate UNCSW
+        function populateUNCSW() {
+            const tbody = document.getElementById('uncsw-tbody');
+            committees.uncsw.forEach((member, index) => {
+                const status = getRandomStatus();
+                const row = `
+                    <tr class="${status.class}">
+                        <td class="serial-no">${index + 1}</td>
+                        <td>${member.country}</td>
+                        <td>${member.region}</td>
+                        <td>${status.text}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Populate WHO
+        function populateWHO() {
+            const tbody = document.getElementById('who-tbody');
+            committees.who.forEach((country, index) => {
+                const status = getRandomStatus();
+                const row = `
+                    <tr class="${status.class}">
+                        <td class="serial-no">${index + 1}</td>
+                        <td>${country}</td>
+                        <td>${status.text}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // Populate MoM
+        function populateMoM() {
+            Object.keys(committees.mom).forEach(dept => {
+                const tbody = document.getElementById(`${dept}-tbody`);
+                committees.mom[dept].forEach((member, index) => {
+                    const status = getRandomStatus();
+                    const row = `
+                        <tr class="${status.class}">
+                            <td class="serial-no">${index + 1}</td>
+                            <td>${member.name}</td>
+                            <td>${member.position || member.division || member.department || member.sport}</td>
+                            <td>${status.text}</td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+            });
+        }
+
+        // Populate AIPPM
+        function populateAIPPM() {
+            Object.keys(committees.aippm).forEach(party => {
+                const tbody = document.getElementById(`${party}-tbody`);
+                committees.aippm[party].forEach((member, index) => {
+                    const status = getRandomStatus();
+                    const row = `
+                        <tr class="${status.class}">
+                            <td class="serial-no">${index + 1}</td>
+                            <td>${member.name}</td>
+                            <td>${member.position}</td>
+                            <td>${status.text}</td>
+                        </tr>
+                    `;
+                    tbody.innerHTML += row;
+                });
+            });
+        }
+
+        // Show main tabs
+        function showTab(tabId) {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.style.display = 'none';
+            });
+            
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const selectedTab = document.getElementById(tabId);
+            selectedTab.style.display = 'block';
+            setTimeout(() => {
+                selectedTab.classList.add('active');
+            }, 10);
+            
+            event.target.classList.add('active');
+        }
+
+        function showSubTab(subTabId, parentTab) {
+            const parent = document.getElementById(parentTab);
+            parent.querySelectorAll('.sub-tab-content').forEach(tab => {
+                tab.classList.remove('active');
+                tab.style.display = 'none';
+            });
+            
+            parent.querySelectorAll('.sub-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            const selectedSubTab = document.getElementById(subTabId);
+            selectedSubTab.style.display = 'block';
+            setTimeout(() => {
+                selectedSubTab.classList.add('active');
+            }, 10);
+            
+            event.target.classList.add('active');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            populateUNGA();
+            populateUNSC();
+            populateUNHRC();
+            populateUNCSW();
+            populateWHO();
+            populateMoM();
+            populateAIPPM();
+        });
+    </script>
+</body>
+</html>
