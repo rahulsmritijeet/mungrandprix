@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model UN Executive Board</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+            color: #ffffff;
+        }
+
+        /* Dark gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(40, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(0, 30, 0, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 50%, #0a0a0a 100%);
+            z-index: 1;
+        }
+
+        /* Subtle twinkle stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: twinkle 4s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0.5);
+            }
+            50% { 
+                opacity: 0.6; 
+                transform: scale(1.2);
+            }
+        }
+
+        /* Main Container */
+        .main-wrapper {
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Horizontal Scroll Container */
+        .horizontal-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            position: relative;
+            align-items: center;
+        }
+
+        .committees-wrapper {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+            align-items: center;
+        }
+
+        /* Committee Section */
+        .committee-section {
+            min-width: 100vw;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .committee-title {
+            font-family: 'Crimson Text', serif;
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+            font-weight: 400;
+            margin-bottom: 40px;
+            text-align: center;
+            color: rgba(180, 180, 180, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .committee-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(100, 0, 0, 0.3), rgba(0, 50, 0, 0.3), transparent);
+        }
+
+        /* Executive Board Cards Container */
+        .eb-container {
+            display: flex;
+            gap: 35px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Dark Glassmorphism Profile Cards */
+        .profile-card {
+            background: rgba(20, 20, 20, 0.3);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            padding: 30px 25px;
+            width: 320px;
+            height: 460px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, rgba(60, 0, 0, 0.2), transparent, rgba(0, 40, 0, 0.2));
+            border-radius: 25px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: -1;
+        }
+
+        .profile-card:hover::before {
+            opacity: 1;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-8px);
+            background: rgba(25, 25, 25, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Profile Image */
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9);
+            transition: filter 0.3s;
+        }
+
+        .profile-card:hover .profile-image img {
+            filter: brightness(1);
+        }
+
+        /* Profile Info */
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: rgba(220, 220, 220, 0.9);
+            letter-spacing: 0.5px;
+        }
+
+        .profile-position {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: rgba(150, 150, 150, 0.8);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .profile-description {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            text-align: center;
+            color: rgba(180, 180, 180, 0.7);
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            opacity: 0.5;
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+            background: rgba(30, 30, 30, 0.6);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .nav-arrow.left {
+            left: 20px;
+        }
+
+        .nav-arrow.right {
+            right: 20px;
+        }
+
+        .nav-arrow::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .nav-arrow.left::after {
+            border-width: 8px 12px 8px 0;
+            border-color: transparent rgba(150, 150, 150, 0.8) transparent transparent;
+            margin-right: 3px;
+        }
+
+        .nav-arrow.right::after {
+            border-width: 8px 0 8px 12px;
+            border-color: transparent transparent transparent rgba(150, 150, 150, 0.8);
+            margin-left: 3px;
+        }
+
+        /* Committee Indicator */
+        .committee-indicator {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 50;
+            padding: 12px 20px;
+            background: rgba(15, 15, 15, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .indicator-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(100, 100, 100, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .indicator-dot.active {
+            background: rgba(150, 150, 150, 0.8);
+            transform: scale(1.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .committee-title {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+            }
+
+            .eb-container {
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .profile-card {
+                width: 280px;
+                height: 420px;
+                padding: 25px 20px;
+            }
+
+            .profile-image {
+                width: 130px;
+                height: 130px;
+            }
+
+            .profile-name {
+                font-size: 1.2rem;
+            }
+
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-arrow.left {
+                left: 10px;
+            }
+
+            .nav-arrow.right {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-card {
+                width: 85vw;
+                height: auto;
+                min-height: 380px;
+            }
+
+            .eb-container {
+                flex-direction: column;
+            }
+
+            .committee-indicator {
+                bottom: 15px;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Subtle stars -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <!-- Navigation Arrows -->
+        <div class="nav-arrow left" onclick="scrollCommittee(-1)"></div>
+        <div class="nav-arrow right" onclick="scrollCommittee(1)"></div>
+
+        <!-- Horizontal Container -->
+        <div class="horizontal-container">
+            <div class="committees-wrapper" id="committeesWrapper">
+                
+                <!-- UNSC -->
+                <div class="committee-section">
+                    <h2 class="committee-title">United Nations Security Council</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Arjun Khanna">
+                            </div>
+                            <div class="profile-name">Arjun Khanna</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Best Delegate at Harvard MUN 2023. Expert in crisis management and diplomatic negotiations with 6 years experience.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=400&h=400&fit=crop" alt="Priya Mehta">
+                            </div>
+                            <div class="profile-name">Priya Mehta</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">5+ years MUN experience. Specializes in peacekeeping operations and conflict resolution strategies.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Rohit Sharma">
+                            </div>
+                            <div class="profile-name">Rohit Sharma</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">National debate champion. Former Secretary-General of Delhi MUN circuit with extensive leadership experience.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Assembly -->
+                <div class="committee-section">
+                    <h2 class="committee-title">General Assembly</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Ananya Patel">
+                            </div>
+                            <div class="profile-name">Ananya Patel</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Led 8 previous MUNs. Strong background in international law and multilateral diplomacy.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Vikram Singh">
+                            </div>
+                            <div class="profile-name">Vikram Singh</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Parliamentary debate champion. Expert in sustainable development goals and policy formation.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop" alt="Kavya Reddy">
+                            </div>
+                            <div class="profile-name">Kavya Reddy</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Oxford MUN alumna. Specializes in climate policy and global governance frameworks.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSW -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Commission on the Status of Women</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop" alt="Ishaan Gupta">
+                            </div>
+                            <div class="profile-name">Ishaan Gupta</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Gender equality advocate. Published researcher on women's rights in South Asia.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=400&h=400&fit=crop" alt="Meera Joshi">
+                            </div>
+                            <div class="profile-name">Meera Joshi</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Youth ambassador for UN Women. Expert in gender-based policy making and advocacy.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop" alt="Aditya Nair">
+                            </div>
+                            <div class="profile-name">Aditya Nair</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Human rights lawyer. Specialized in women's economic empowerment initiatives.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HRC -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Human Rights Council</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Shreya Kapoor">
+                            </div>
+                            <div class="profile-name">Shreya Kapoor</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">International relations major. Winner of Best Diplomat Award at Yale MUN 2023.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" alt="Raj Malhotra">
+                            </div>
+                            <div class="profile-name">Raj Malhotra</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Legal studies background. Expert in humanitarian law and refugee rights protection.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop" alt="Divya Iyer">
+                            </div>
+                            <div class="profile-name">Divya Iyer</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Civil liberties advocate. 4 years experience in crisis committees and emergency sessions.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AIPPM -->
+                <div class="committee-section">
+                    <h2 class="committee-title">All India Political Parties Meet</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop" alt="Karan Desai">
+                            </div>
+                            <div class="profile-name">Karan Desai</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Political science scholar. Expert in Indian parliamentary procedures and coalition politics.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&h=400&fit=crop" alt="Nisha Banerjee">
+                            </div>
+                            <div class="profile-name">Nisha Banerjee</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Constitutional law expert. Former president of university debate society.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1548372290-8d01b6c8e78c?w=400&h=400&fit=crop" alt="Aryan Verma">
+                            </div>
+                            <div class="profile-name">Aryan Verma</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Youth parliament champion. Specializes in Indian foreign policy debates.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOM - Wizengamot -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Ministry of Magic - Wizengamot</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1558898479-33c0057a5d12?w=400&h=400&fit=crop" alt="Rhea Chakraborty">
+                            </div>
+                            <div class="profile-name">Rhea Chakraborty</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Creative committee specialist. Expert in magical law and wizarding governance systems.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&h=400&fit=crop" alt="Siddharth Rao">
+                            </div>
+                            <div class="profile-name">Siddharth Rao</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Fantasy literature enthusiast. Led 3 Harry Potter themed MUNs successfully.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&h=400&fit=crop" alt="Aisha Khan">
+                            </div>
+                            <div class="profile-name">Aisha Khan</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Creative writing champion. Expert in magical crisis management scenarios.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOM - Department of Mysteries -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Ministry of Magic - Department of Mysteries</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop" alt="Varun Bhatt">
+                            </div>
+                            <div class="profile-name">Varun Bhatt</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Mystery and thriller writer. Specializes in covert operations simulations.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1589156280159-27698a70f29e?w=400&h=400&fit=crop" alt="Tara Krishnan">
+                            </div>
+                            <div class="profile-name">Tara Krishnan</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Science fiction enthusiast. Expert in time-turner protocols and prophecy interpretation.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop" alt="Neil Aggarwal">
+                            </div>
+                            <div class="profile-name">Neil Aggarwal</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Philosophy major. Specialized in existential magical theory debates.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOM - Auror Office -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Ministry of Magic - Auror Office</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1582152629442-4a864303fb96?w=400&h=400&fit=crop" alt="Maya Saxena">
+                            </div>
+                            <div class="profile-name">Maya Saxena</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Crisis committee veteran. Expert in dark wizard pursuit simulations and defense strategies.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=400&fit=crop" alt="Rohan Pillai">
+                            </div>
+                            <div class="profile-name">Rohan Pillai</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Strategic planning expert. Led successful defense against Death Eater crisis scenarios.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?w=400&h=400&fit=crop" alt="Simran Kaur">
+                            </div>
+                            <div class="profile-name">Simran Kaur</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Defense Against Dark Arts specialist. Champion duelist in magical combat scenarios.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOM - Magical Law -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Ministry of Magic - Magical Law Enforcement</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=400&h=400&fit=crop" alt="Akash Trivedi">
+                            </div>
+                            <div class="profile-name">Akash Trivedi</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Law student specializing in magical jurisprudence. National moot court champion.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1601288496920-b6154fe3626a?w=400&h=400&fit=crop" alt="Pooja Mishra">
+                            </div>
+                            <div class="profile-name">Pooja Mishra</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Criminal justice major. Expert in wizarding world legal proceedings and trials.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=400&fit=crop" alt="Harsh Agarwal">
+                            </div>
+                            <div class="profile-name">Harsh Agarwal</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Forensics enthusiast. Specialized in magical crime scene analysis and evidence.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOM - Games & Sports -->
+                <div class="committee-section">
+                    <h2 class="committee-title">Ministry of Magic - Games & Sports</h2>
+                    <div class="eb-container">
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop" alt="Ritika Shah">
+                            </div>
+                            <div class="profile-name">Ritika Shah</div>
+                            <div class="profile-position">Chairperson</div>
+                            <div class="profile-description">Sports management expert. Organized International Quidditch Cup simulation successfully.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop" alt="Arun Kumar">
+                            </div>
+                            <div class="profile-name">Arun Kumar</div>
+                            <div class="profile-position">Vice-Chairperson</div>
+                            <div class="profile-description">Event management specialist. Expert in magical tournament regulations and logistics.</div>
+                        </div>
+                        <div class="profile-card">
+                            <div class="profile-image">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Sneha Yadav">
+                            </div>
+                            <div class="profile-name">Sneha Yadav</div>
+                            <div class="profile-position">Rapporteur</div>
+                            <div class="profile-description">Athletics coordinator. Specialized in inter-house championship debates and competitions.</div>
+                        </div>            
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Committee Indicator -->
+        <div class="committee-indicator" id="indicator"></div>
+    </div>
+
+    <script>
+        // Create subtle twinkle stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 60;
+            
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                // Random position around edges only
+                const edge = Math.floor(Math.random() * 4);
+                
+                switch(edge) {
+                    case 0: // top
+                        star.style.top = `${Math.random() * 15}%`;
+                        star.style.left = `${Math.random() * 100}%`;
+                        break;
+                    case 1: // right
+                        star.style.top = `${Math.random() * 100}%`;
+                        star.style.right = `${Math.random() * 15}%`;
+                        break;
+                    case 2: // bottom
+                        star.style.bottom = `${Math.random() * 15}%`;
+                        star.style.left = `${Math.random() * 100}%`;
+                        break;
+                    case 3: // left
+                        star.style.top = `${Math.random() * 100}%`;
+                        star.style.left = `${Math.random() * 15}%`;
+                        break;
+                }
+                
+                star.style.animationDelay = `${Math.random() * 4}s`;
+                star.style.animationDuration = `${4 + Math.random() * 2}s`;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Committee navigation
+        let currentCommittee = 0;
+        const committees = document.querySelectorAll('.committee-section');
+        const wrapper = document.getElementById('committeesWrapper');
+        const totalCommittees = committees.length;
+
+        // Create indicator dots
+        function createIndicators() {
+            const indicatorContainer = document.getElementById('indicator');
+            for (let i = 0; i < totalCommittees; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'indicator-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToCommittee(i);
+                indicatorContainer.appendChild(dot);
+            }
+        }
+
+        function updateIndicators() {
+            const dots = document.querySelectorAll('.indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === currentCommittee) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        function scrollCommittee(direction) {
+            currentCommittee += direction;
+            
+            // Loop around
+            if (currentCommittee < 0) {
+                currentCommittee = totalCommittees - 1;
+            } else if (currentCommittee >= totalCommittees) {
+                currentCommittee = 0;
+            }
+            
+            updateCommitteePosition();
+        }
+
+        function goToCommittee(index) {
+            currentCommittee = index;
+            updateCommitteePosition();
+        }
+
+        function updateCommitteePosition() {
+            const offset = currentCommittee * -100;
+            wrapper.style.transform = `translateX(${offset}vw)`;
+            updateIndicators();
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                scrollCommittee(1);
+            } else if (e.key === 'ArrowLeft') {
+                scrollCommittee(-1);
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                scrollCommittee(1); // swipe left, go right
+            }
+            if (touchEndX > touchStartX + 50) {
+                scrollCommittee(-1); // swipe right, go left
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createStars();
+            createIndicators();
+        });
+
+        // Smooth scroll with mouse wheel (horizontal)
+        document.addEventListener('wheel', (e) => {
+            if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+                e.preventDefault();
+                if (e.deltaY > 0) {
+                    scrollCommittee(1);
+                } else {
+                    scrollCommittee(-1);
+                }
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>

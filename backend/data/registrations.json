@@ -1,0 +1,1432 @@
+[
+  {
+    "fullName": "Elon Musk",
+    "email": "mitti.psd1985@gmail.com",
+    "phone": "7011811024",
+    "dob": "2001-08-09",
+    "class": "11",
+    "school": "Nevermore",
+    "committee1": "UNGA",
+    "committee2": "UNCSW",
+    "committee3": "MOM",
+    "experience": "5",
+    "bestDelegate": "1",
+    "specialMention": "",
+    "verbalMention": "1",
+    "participation": "2",
+    "experienceDetails": "",
+    "committeeSelections": {
+      "1": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Belarus",
+          "2": "Bahamas",
+          "3": "Australia"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNCSW",
+        "portfolios": {
+          "1": "Egypt",
+          "2": "Ghana",
+          "3": "Denmark"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "MOM",
+        "portfolios": {},
+        "specialData": {
+          "dept1": "Department of Mysteries",
+          "dept1_pos1": "Saul Croaker - Head Unspeakable",
+          "dept1_pos2": "Unspeakable #12 - Love Chamber",
+          "dept2": "Magical Law Enforcement",
+          "dept2_pos1": "Dolores Umbridge - Senior Secretary",
+          "dept2_pos2": "Tiberius Ogden - Wizengamot Admin",
+          "dept3": "Wizengamot",
+          "dept3_pos1": "Augusta Longbottom - Member",
+          "dept3_pos2": "Dolores Umbridge - Senior Secretary"
+        }
+      }
+    },
+    "id": "1758921727672",
+    "registeredAt": "2025-09-26T21:22:07.688Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "fullName": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2001-08-09",
+    "class": "9",
+    "school": "Cambridge School, Noida",
+    "committee1": "UNGA",
+    "committee2": "UNHRC",
+    "committee3": "UNSC",
+    "experience": "5",
+    "bestDelegate": "3",
+    "specialMention": "",
+    "verbalMention": "",
+    "participation": "1",
+    "experienceDetails": "",
+    "committeeSelections": {
+      "1": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Bahrain",
+          "2": "Belgium",
+          "3": "Benin"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Gabon",
+          "2": "France",
+          "3": "Czech Republic"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Switzerland",
+          "2": "United Kingdom (P5)",
+          "3": "United States (P5)"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758924688754",
+    "registeredAt": "2025-09-26T22:11:28.762Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "fullName": "Elon Musk",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2013-09-01",
+    "class": "undergraduate",
+    "school": "InstaGprix",
+    "committee1": "UNSC",
+    "committee2": "UNCSW",
+    "committee3": "UNHRC",
+    "experience": "6-10",
+    "bestDelegate": "5",
+    "specialMention": "1",
+    "verbalMention": "",
+    "participation": "4",
+    "experienceDetails": "",
+    "committeeSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Ecuador",
+          "2": "China (P5)",
+          "3": "Algeria"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNCSW",
+        "portfolios": {
+          "1": "Australia",
+          "2": "Colombia",
+          "3": "Bangladesh"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "France",
+          "2": "Czech Republic",
+          "3": "Romania"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758972043350",
+    "registeredAt": "2025-09-27T11:20:43.484Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rhal",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "9119119119",
+    "dob": "2012-07-17",
+    "class": "11",
+    "institution": "Sigma school of rizzlers",
+    "experience": "2",
+    "bestDelegate": 1,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "AIPPM",
+        "portfolio": "Akhilesh Yadav",
+        "subCommittee": "SP"
+      },
+      "preference2": {
+        "committee": "MOM",
+        "portfolio": "Pius Thicknesse",
+        "subCommittee": "Magical Law Enforcement"
+      },
+      "preference3": {
+        "committee": "UNHRC",
+        "portfolio": "South Africa",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "AIPPM",
+        "portfolios": {},
+        "specialData": {
+          "party1": "SP",
+          "party1_pos1": "Akhilesh Yadav",
+          "party1_pos2": "Azam Khan",
+          "party2": "BSP",
+          "party2_pos1": "Lalji Verma",
+          "party2_pos2": "Satish Chandra Mishra",
+          "party3": "INC",
+          "party3_pos1": "Priyanka Gandhi",
+          "party3_pos2": "Sonia Gandhi"
+        }
+      },
+      "2": {
+        "committee": "MOM",
+        "portfolios": {},
+        "specialData": {
+          "dept1": "Magical Law Enforcement",
+          "dept1_pos1": "Pius Thicknesse",
+          "dept1_pos2": "Amelia Bones",
+          "dept2": "Department of Mysteries",
+          "dept2_pos1": "Augustus Rookwood",
+          "dept2_pos2": "Unspeakable #7",
+          "dept3": "Auror Office",
+          "dept3_pos1": "Harry Potter",
+          "dept3_pos2": "Kingsley Shacklebolt"
+        }
+      },
+      "3": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "South Africa",
+          "2": "Somalia",
+          "3": "Senegal"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758981766880",
+    "registeredAt": "2025-09-27T14:02:46.884Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Shaurya Shukla",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2012-11-09",
+    "class": "8",
+    "institution": "Cambridge School, Noida",
+    "experience": "2",
+    "bestDelegate": 0,
+    "specialMention": 0,
+    "verbalMention": 1,
+    "participation": 1,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Malta",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNCSW",
+        "portfolio": "Australia",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "UNHRC",
+        "portfolio": "Somalia",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Malta",
+          "2": "Japan",
+          "3": "United States"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNCSW",
+        "portfolios": {
+          "1": "Australia",
+          "2": "Tanzania",
+          "3": "South Africa"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Somalia",
+          "2": "China",
+          "3": "Kenya"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758983069364",
+    "registeredAt": "2025-09-27T14:24:29.368Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "shaurya again",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-11-09",
+    "class": "12",
+    "institution": "csn",
+    "experience": "5",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNGA",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNCSW",
+        "portfolio": "Australia",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "UNSC",
+        "portfolio": "Switzerland",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "Bahamas",
+          "3": "Bahrain"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNCSW",
+        "portfolios": {
+          "1": "Australia",
+          "2": "Ireland",
+          "3": "China"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Switzerland",
+          "2": "Sierra Leone",
+          "3": "Mozambique"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758986459801",
+    "registeredAt": "2025-09-27T15:20:59.818Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "9119119119",
+    "dob": "2011-02-01",
+    "class": "9",
+    "institution": "Cambridge",
+    "experience": "4",
+    "bestDelegate": 0,
+    "specialMention": 2,
+    "verbalMention": 1,
+    "participation": 0,
+    "experienceDetails": "I am a good guy.",
+    "preferences": {
+      "preference1": {
+        "committee": "AIPPM",
+        "portfolio": "Narendra Modi",
+        "subCommittee": "BJP"
+      },
+      "preference2": {
+        "committee": "MOM",
+        "portfolio": "Royston Idlewind",
+        "subCommittee": "Department of Magical Games and Sports"
+      },
+      "preference3": {
+        "committee": "UNSC",
+        "portfolio": "Republic of Korea",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "AIPPM",
+        "portfolios": {},
+        "specialData": {
+          "party1": "BJP",
+          "party1_pos1": "Narendra Modi",
+          "party1_pos2": "Yogi Adityanath",
+          "party2": "CPI(M)",
+          "party2_pos1": "Nilotpal Basu",
+          "party2_pos2": "Subhashini Ali",
+          "party3": "SP",
+          "party3_pos1": "Akhilesh Yadav",
+          "party3_pos2": "Shivpal Singh Yadav"
+        }
+      },
+      "2": {
+        "committee": "MOM",
+        "portfolios": {},
+        "specialData": {
+          "dept1": "Department of Magical Games and Sports",
+          "dept1_pos1": "Royston Idlewind",
+          "dept1_pos2": "Bertha Jorkins",
+          "dept2": "Auror Office",
+          "dept2_pos1": "Proudfoot",
+          "dept2_pos2": "John Dawlish",
+          "dept3": "Wizengamot",
+          "dept3_pos1": "Griselda Marchbanks",
+          "dept3_pos2": "Tiberius Ogden"
+        }
+      },
+      "3": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Republic of Korea",
+          "2": "Mozambique",
+          "3": "Malta"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758987364781",
+    "registeredAt": "2025-09-27T15:36:04.808Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "9119119119",
+    "dob": "2011-01-02",
+    "class": "9",
+    "institution": "Cambridge",
+    "experience": "4",
+    "bestDelegate": 0,
+    "specialMention": 2,
+    "verbalMention": 1,
+    "participation": 1,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "AIPPM",
+        "portfolio": "Narendra Modi",
+        "subCommittee": "BJP"
+      },
+      "preference2": {
+        "committee": "MOM",
+        "portfolio": "Perkins",
+        "subCommittee": "Magical Law Enforcement"
+      },
+      "preference3": {
+        "committee": "UNSC",
+        "portfolio": "Republic of Korea",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "AIPPM",
+        "portfolios": {},
+        "specialData": {
+          "party1": "BJP",
+          "party1_pos1": "Narendra Modi",
+          "party1_pos2": "Yogi Adityanath",
+          "party2": "CPI(M)",
+          "party2_pos1": "Nilotpal Basu",
+          "party2_pos2": "Subhashini Ali",
+          "party3": "NCP",
+          "party3_pos1": "Dilip Walse Patil",
+          "party3_pos2": "Chhagan Bhujbal"
+        }
+      },
+      "2": {
+        "committee": "MOM",
+        "portfolios": {},
+        "specialData": {
+          "dept1": "Magical Law Enforcement",
+          "dept2": "Department of Mysteries",
+          "dept3": "Auror Office",
+          "dept2_pos1": "Augustus Rookwood",
+          "dept2_pos2": "Bode",
+          "dept3_pos1": "Savage",
+          "dept3_pos2": "Gawain Robards",
+          "dept1_pos1": "Perkins",
+          "dept1_pos2": "Tiberius Ogden"
+        }
+      },
+      "3": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Republic of Korea",
+          "2": "Sierra Leone",
+          "3": "Switzerland"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1758988397263",
+    "registeredAt": "2025-09-27T15:53:17.287Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Shaurya Shukla",
+    "email": "shauryashuklass21@gmail.com",
+    "phone": "7011811024",
+    "dob": "2001-09-11",
+    "class": "12",
+    "institution": "American School of Terrorism",
+    "experience": "6-10",
+    "bestDelegate": 3,
+    "specialMention": 2,
+    "verbalMention": 0,
+    "participation": 2,
+    "experienceDetails": "I am an ass.",
+    "preferences": {
+      "preference1": {
+        "committee": "MOM",
+        "portfolio": "Unspeakable #89",
+        "subCommittee": "Department of Mysteries"
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Costa Rica",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "AIPPM",
+        "portfolio": "Amit Shah",
+        "subCommittee": "BJP"
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "MOM",
+        "portfolios": {},
+        "specialData": {
+          "dept1": "Department of Mysteries",
+          "dept1_pos1": "Unspeakable #89",
+          "dept1_pos2": "Saul Croaker",
+          "dept2": "Auror Office",
+          "dept2_pos1": "Savage",
+          "dept2_pos2": "John Dawlish",
+          "dept3": "Department of Magical Games and Sports",
+          "dept3_pos1": "Ludovic Bagman",
+          "dept3_pos2": "Ali Bashir"
+        }
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Costa Rica",
+          "2": "United Arab Emirates",
+          "3": "Ukraine"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "AIPPM",
+        "portfolios": {},
+        "specialData": {
+          "party1": "BJP",
+          "party1_pos1": "Amit Shah",
+          "party1_pos2": "Narendra Modi",
+          "party2": "INC",
+          "party2_pos1": "P. Chidambaram",
+          "party2_pos2": "Rahul Gandhi",
+          "party3": "TMC",
+          "party3_pos1": "Kakoli Ghosh Dastidar",
+          "party3_pos2": "Firhad Hakim"
+        }
+      }
+    },
+    "id": "1759229170574",
+    "registeredAt": "2025-09-30T10:46:10.574Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2001-09-07",
+    "class": "postgraduate",
+    "institution": "America Rises fr",
+    "experience": "4",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 2,
+    "experienceDetails": "goody",
+    "preferences": {
+      "preference1": {
+        "committee": "UNHRC",
+        "portfolio": "India",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNGA",
+        "portfolio": "Bahrain",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "UNSC",
+        "portfolio": "Slovenia",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "India",
+          "2": "Bangladesh",
+          "3": "South Africa"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Bahrain",
+          "2": "Bahamas",
+          "3": "Australia"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Slovenia",
+          "2": "Republic of Korea",
+          "3": "Switzerland"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759229274622",
+    "registeredAt": "2025-09-30T10:47:54.622Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-07-10",
+    "class": "9",
+    "institution": "Cambridge School, Noida",
+    "experience": "4",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Sierra Leone",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "WHO",
+        "portfolio": "Benin",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Sierra Leone",
+          "2": "Slovenia",
+          "3": "Mozambique"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "China",
+          "3": "Senegal"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "WHO",
+        "portfolios": {
+          "1": "Benin",
+          "2": "Belize",
+          "3": "Belgium"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759398948919",
+    "registeredAt": "2025-10-02T09:55:48.919Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-07-10",
+    "class": "9",
+    "institution": "Cambridge School, Noida",
+    "experience": "4",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Sierra Leone",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "WHO",
+        "portfolio": "Benin",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Sierra Leone",
+          "2": "Slovenia",
+          "3": "Mozambique"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "China",
+          "3": "Senegal"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "WHO",
+        "portfolios": {
+          "1": "Benin",
+          "2": "Belize",
+          "3": "Belgium"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759398957943",
+    "registeredAt": "2025-10-02T09:55:57.944Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-07-10",
+    "class": "9",
+    "institution": "Cambridge School, Noida",
+    "experience": "4",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Sierra Leone",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "WHO",
+        "portfolio": "Benin",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Sierra Leone",
+          "2": "Slovenia",
+          "3": "Mozambique"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "China",
+          "3": "Senegal"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "WHO",
+        "portfolios": {
+          "1": "Benin",
+          "2": "Belize",
+          "3": "Belgium"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759398960282",
+    "registeredAt": "2025-10-02T09:56:00.282Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-07-10",
+    "class": "9",
+    "institution": "Cambridge School, Noida",
+    "experience": "4",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Sierra Leone",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "WHO",
+        "portfolio": "Benin",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Sierra Leone",
+          "2": "Slovenia",
+          "3": "Mozambique"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "China",
+          "3": "Senegal"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "WHO",
+        "portfolios": {
+          "1": "Benin",
+          "2": "Belize",
+          "3": "Belgium"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759399058031",
+    "registeredAt": "2025-10-02T09:57:38.031Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-07-10",
+    "class": "9",
+    "institution": "Cambridge School, Noida",
+    "experience": "4",
+    "bestDelegate": 2,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Sierra Leone",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "WHO",
+        "portfolio": "Benin",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Sierra Leone",
+          "2": "Slovenia",
+          "3": "Mozambique"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "China",
+          "3": "Senegal"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "WHO",
+        "portfolios": {
+          "1": "Benin",
+          "2": "Belize",
+          "3": "Belgium"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759399060554",
+    "registeredAt": "2025-10-02T09:57:40.555Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "mitti.psd1985@gmail.com",
+    "phone": "7011811024",
+    "dob": "2001-01-01",
+    "class": "postgraduate",
+    "institution": "Hera Pheri",
+    "experience": "1",
+    "bestDelegate": 0,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "WHO",
+        "portfolio": "Bhutan",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "AIPPM",
+        "portfolio": "Kakoli Ghosh Dastidar",
+        "subCommittee": "TMC"
+      },
+      "preference3": {
+        "committee": "UNSC",
+        "portfolio": "Slovenia",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "WHO",
+        "portfolios": {
+          "1": "Bhutan",
+          "2": "Benin",
+          "3": "Belize"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "AIPPM",
+        "portfolios": {},
+        "specialData": {
+          "party1": "TMC",
+          "party1_pos1": "Kakoli Ghosh Dastidar",
+          "party1_pos2": "Subrata Bakshi",
+          "party2": "SP",
+          "party2_pos1": "Swami Prasad Maurya",
+          "party2_pos2": "Rajendra Chaudhary",
+          "party3": "BJP",
+          "party3_pos1": "Shivraj Singh Chouhan",
+          "party3_pos2": "B.S. Yediyurappa"
+        }
+      },
+      "3": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Slovenia",
+          "2": "Sierra Leone",
+          "3": "Republic of Korea"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759399484143",
+    "registeredAt": "2025-10-02T10:04:44.143Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Shaurya Shukla",
+    "email": "mitti.psd1985@gmail.com",
+    "phone": "7011811024",
+    "dob": "2011-09-09",
+    "class": "12",
+    "institution": "csnnot",
+    "experience": "0",
+    "bestDelegate": 0,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNCSW",
+        "portfolio": "Bangladesh",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNHRC",
+        "portfolio": "Benin",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "UNGA",
+        "portfolio": "Belarus",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNCSW",
+        "portfolios": {
+          "1": "Bangladesh",
+          "2": "Australia",
+          "3": "India"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Benin",
+          "2": "Algeria",
+          "3": "Gambia"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Belarus",
+          "2": "Azerbaijan",
+          "3": "Bahamas"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759399598801",
+    "registeredAt": "2025-10-02T10:06:38.801Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "mitti.psd1985@gmail.com",
+    "phone": "7011801024",
+    "dob": "1219-01-11",
+    "class": "undergraduate",
+    "institution": "csn",
+    "experience": "0",
+    "bestDelegate": 0,
+    "specialMention": 0,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNHRC",
+        "portfolio": "Ivory Coast",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNSC",
+        "portfolio": "Switzerland",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "UNGA",
+        "portfolio": "Belize",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "Ivory Coast",
+          "2": "Eritrea",
+          "3": "Cameroon"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Switzerland",
+          "2": "Japan",
+          "3": "United Kingdom"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Belize",
+          "2": "Belgium",
+          "3": "Belarus"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1759399714627",
+    "registeredAt": "2025-10-02T10:08:34.627Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Rahul Smritijeet",
+    "email": "rahulsmritijeet@gmail.com",
+    "phone": "7011811024",
+    "dob": "9201-01-01",
+    "class": "10",
+    "institution": "Cambridge School, Noida",
+    "experience": "2",
+    "bestDelegate": 1,
+    "specialMention": 2,
+    "verbalMention": 0,
+    "participation": 0,
+    "experienceDetails": "blah ",
+    "preferences": {
+      "preference1": {
+        "committee": "UNGA",
+        "portfolio": "Azerbaijan",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "UNCSW",
+        "portfolio": "Ghana",
+        "subCommittee": null
+      },
+      "preference3": {
+        "committee": "UNHRC",
+        "portfolio": "China",
+        "subCommittee": null
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNGA",
+        "portfolios": {
+          "1": "Azerbaijan",
+          "2": "Australia",
+          "3": "Armenia"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "UNCSW",
+        "portfolios": {
+          "1": "Ghana",
+          "2": "Kenya",
+          "3": "Liberia"
+        },
+        "specialData": {}
+      },
+      "3": {
+        "committee": "UNHRC",
+        "portfolios": {
+          "1": "China",
+          "2": "Ivory Coast",
+          "3": "Gambia"
+        },
+        "specialData": {}
+      }
+    },
+    "id": "1761214600532",
+    "registeredAt": "2025-10-23T10:16:40.532Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  },
+  {
+    "name": "Shaurya Shukla",
+    "email": "mitti.psd1985@gmail.com",
+    "phone": "7011811024",
+    "dob": "1111-01-01",
+    "class": "11",
+    "institution": "American School of Terrorism",
+    "experience": "6-10",
+    "bestDelegate": 1,
+    "specialMention": 3,
+    "verbalMention": 1,
+    "participation": 5,
+    "experienceDetails": "",
+    "preferences": {
+      "preference1": {
+        "committee": "UNSC",
+        "portfolio": "Mozambique",
+        "subCommittee": null
+      },
+      "preference2": {
+        "committee": "AIPPM",
+        "portfolio": "Duraimurugan",
+        "subCommittee": "DMK"
+      },
+      "preference3": {
+        "committee": "MOM",
+        "portfolio": "Croaker",
+        "subCommittee": "Department of Mysteries"
+      }
+    },
+    "fullSelections": {
+      "1": {
+        "committee": "UNSC",
+        "portfolios": {
+          "1": "Mozambique",
+          "2": "Ecuador",
+          "3": "Japan"
+        },
+        "specialData": {}
+      },
+      "2": {
+        "committee": "AIPPM",
+        "portfolios": {},
+        "specialData": {
+          "party1": "DMK",
+          "party1_pos1": "Duraimurugan",
+          "party1_pos2": "E.V. Velu",
+          "party2": "BSP",
+          "party2_pos1": "Lalji Verma",
+          "party2_pos2": "Naseemuddin Siddiqui",
+          "party3": "INC",
+          "party3_pos1": "Jairam Ramesh",
+          "party3_pos2": "P. Chidambaram"
+        }
+      },
+      "3": {
+        "committee": "MOM",
+        "portfolios": {},
+        "specialData": {
+          "dept1": "Department of Mysteries",
+          "dept1_pos1": "Croaker",
+          "dept1_pos2": "Bode",
+          "dept2": "Wizengamot",
+          "dept2_pos1": "Albus Dumbledore",
+          "dept2_pos2": "Tiberius Ogden",
+          "dept3": "Auror Office",
+          "dept3_pos1": "Harry Potter",
+          "dept3_pos2": "Alastor Moody"
+        }
+      }
+    },
+    "id": "1761217094965",
+    "registeredAt": "2025-10-23T10:58:14.965Z",
+    "allocation": {
+      "status": "Pending",
+      "committee": null,
+      "portfolio": null,
+      "subCommittee": null,
+      "allottedAt": null,
+      "confirmedAt": null
+    }
+  }
+]

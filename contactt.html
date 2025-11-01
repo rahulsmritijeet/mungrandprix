@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reach Us - MUN EB</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: fixed;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a0808 0%, #0d1a0d 50%, #1a0808 100%);
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Animated background shapes */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape1 {
+            width: 30vw;
+            height: 30vw;
+            max-width: 400px;
+            max-height: 400px;
+            background: radial-gradient(circle, #8b0000, transparent);
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .shape2 {
+            width: 25vw;
+            height: 25vw;
+            max-width: 350px;
+            max-height: 350px;
+            background: radial-gradient(circle, #013220, transparent);
+            bottom: -10%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+
+        .shape3 {
+            width: 20vw;
+            height: 20vw;
+            max-width: 300px;
+            max-height: 300px;
+            background: radial-gradient(circle, #8b0000, transparent);
+            top: 40%;
+            right: 5%;
+            animation-delay: 10s;
+        }
+
+        .shape4 {
+            width: 18vw;
+            height: 18vw;
+            max-width: 250px;
+            max-height: 250px;
+            background: radial-gradient(circle, #013220, transparent);
+            top: 15%;
+            left: 45%;
+            animation-delay: 15s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -20px) scale(1.05); }
+            66% { transform: translate(-15px, 15px) scale(0.95); }
+        }
+
+        /* Main wrapper */
+        .main-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2vh;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            letter-spacing: 0.5px;
+        }
+
+        /* Cards container */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        /* Glass card style */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(20px, 3vw, 35px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 107, 0.5), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+                        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .card-title {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: clamp(15px, 2vh, 25px);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i {
+            color: #ff6b6b;
+            font-size: 1.2em;
+        }
+
+        /* Contact info styles */
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: clamp(12px, 2vh, 20px);
+            padding: clamp(10px, 1.5vh, 15px);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(3px);
+        }
+
+        .contact-item i {
+            width: clamp(35px, 4vw, 40px);
+            height: clamp(35px, 4vw, 40px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #8b0000, #013220);
+            border-radius: 10px;
+            color: white;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-label {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: clamp(0.7rem, 1vw, 0.8rem);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            word-break: break-word;
+        }
+
+        .contact-item a:hover {
+            color: #ff6b6b;
+        }
+
+        .contact-text {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+        }
+
+        /* Social media styles */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(12px, 2vh, 18px);
+        }
+
+        .social-link {
+            height: clamp(60px, 8vh, 75px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.3), transparent);
+            transition: all 0.5s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .social-link:hover::before {
+            width: 120px;
+            height: 120px;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.03);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Particle animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+            animation: fadeInUp 0.8s ease 0.3s both;
+            margin-top: 1vh;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .cards-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .main-wrapper {
+                padding: 15px;
+            }
+
+            .header {
+                margin-bottom: 20px;
+            }
+
+            .social-links {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+
+            .social-link {
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .cards-container {
+                gap: 15px;
+            }
+
+            .contact-item {
+                margin-bottom: 10px;
+                padding: 8px;
+            }
+
+            .card-title {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background shapes -->
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="bg-shape shape3"></div>
+    <div class="bg-shape shape4"></div>
+
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Main wrapper -->
+    <div class="main-wrapper">
+        <!-- Container -->
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <h1>Reach Us</h1>
+                <p>Get in touch with the MUN Executive Board</p>
+            </div>
+
+            <!-- Cards container -->
+            <div class="cards-container">
+                <!-- Contact Info Panel -->
+                <div class="glass-card">
+                    <h2 class="card-title">
+                        <i class="fas fa-address-card"></i>
+                        Contact Information
+                    </h2>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-info">
+                            <div class="contact-label">Phone</div>
+                            <a href="tel:+919119119119">+91 91191 19119</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-info">
+                            <div class="contact-label">Email</div>
+                            <a href="mailto:mungrandprix@gmail.com">mungrandprix@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-info">
+                            <div class="contact-label">Address</div>
+                            <span class="contact-text">911 Street, City, India</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Panel -->
+                <div class="glass-card">
+                    <h2 class="card-title">
+                        <i class="fas fa-share-alt"></i>
+                        Connect With Us
+                    </h2>
+                    
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://discord.com" target="_blank" class="social-link" aria-label="Discord">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>© 2024 Model United Nations Executive Board</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Particle animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 40;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position around edges only
+                const edge = Math.floor(Math.random() * 4);
+                let x, y;
+                
+                switch(edge) {
+                    case 0: // top
+                        x = Math.random() * 100;
+                        y = Math.random() * 5;
+                        break;
+                    case 1: // right
+                        x = 95 + Math.random() * 5;
+                        y = Math.random() * 100;
+                        break;
+                    case 2: // bottom
+                        x = Math.random() * 100;
+                        y = 95 + Math.random() * 5;
+                        break;
+                    case 3: // left
+                        x = Math.random() * 5;
+                        y = Math.random() * 100;
+                        break;
+                }
+                
+                particle.style.left = x + '%';
+                particle.style.top = y + '%';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (3 + Math.random() * 2) + 's';
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles on load
+        window.addEventListener('load', createParticles);
+
+        // Prevent scrolling
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        document.addEventListener('wheel', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+
+        // Add hover effect to cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.background = `
+                    radial-gradient(
+                        circle at ${x}px ${y}px,
+                        rgba(255, 255, 255, 0.08),
+                        rgba(255, 255, 255, 0.05)
+                    )
+                `;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.background = 'rgba(255, 255, 255, 0.05)';
+            });
+        });
+    </script>
+</body>
+</html>

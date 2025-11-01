@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model United Nations - Committee Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&family=Exo+2:wght@300;400;700&family=Audiowide&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Exo 2', 'Space Mono', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0f1f 25%, #0f1823 50%, #0a0a0a 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Dynamic Island Navbar */
+        nav {
+            position: sticky;
+            top: 80px;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            padding: 0 20px;
+            margin-bottom: 2rem;
+        }
+
+        .nav-island {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 100px rgba(131, 56, 236, 0.1);
+            max-width: fit-content;
+            animation: floatIsland 6s ease-in-out infinite;
+        }
+
+        @keyframes floatIsland {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        /* Interstellar Font for Navbar */
+        nav button {
+            font-family: 'Audiowide', 'Rajdhani', monospace;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            color: #a0a0a0;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+
+        nav button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.4), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        nav button:hover::before {
+            width: 150px;
+            height: 150px;
+        }
+
+        nav button:hover {
+            color: #fff;
+            border-color: rgba(131, 56, 236, 0.5);
+            transform: scale(1.05);
+            text-shadow: 0 0 15px rgba(131, 56, 236, 0.8);
+        }
+
+        nav button.active {
+            background: linear-gradient(145deg, rgba(131, 56, 236, 0.2), rgba(255, 0, 110, 0.2));
+            border-color: rgba(255, 0, 110, 0.5);
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 0, 110, 0.8);
+        }
+
+        /* Container - More Open */
+        .container {
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Tab Styles */
+        .tab {
+            opacity: 0;
+            transform: translateY(30px) scale(0.98);
+            display: none;
+            animation: morphFadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .tab.active {
+            display: block;
+        }
+
+        @keyframes morphFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Heading with Space Font */
+        h1 {
+            font-family: 'Orbitron', monospace;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 3.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.3));
+            animation: spaceGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes spaceGlow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 30px rgba(239, 68, 68, 0.3)) brightness(1);
+            }
+            50% { 
+                filter: drop-shadow(0 0 50px rgba(131, 56, 236, 0.5)) brightness(1.1);
+            }
+        }
+
+        /* Party Full Name Display */
+        .party-full-name {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 2rem 0;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(131, 56, 236, 0.5);
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Table with Glassmorphism */
+        table {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-spacing: 0;
+            border-collapse: separate;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 80px rgba(131, 56, 236, 0.1);
+        }
+
+        th {
+            font-family: 'Space Mono', monospace;
+            background: rgba(10, 10, 10, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            text-align: left;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            font-family: 'Exo 2', sans-serif;
+            padding: 1.2rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        tr {
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        tr::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #ff006e, #3a86ff);
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+        }
+
+        tr:hover::before {
+            transform: scaleY(1);
+        }
+
+        tr:hover td {
+            background: rgba(131, 56, 236, 0.08);
+            color: #fff;
+        }
+
+        /* Status Row Styles */
+        tr.status-occupied td {
+            background: rgba(251, 191, 36, 0.1) !important;
+            color: #fbbf24 !important;
+        }
+
+        tr.status-occupied td:last-child {
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
+
+        tr.status-confirmed td {
+            background: rgba(239, 68, 68, 0.1) !important;
+            color: #ff6b6b !important;
+        }
+
+        tr.status-confirmed td:last-child {
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+        }
+
+        tr.status-available td {
+            background: rgba(255, 255, 255, 0.02) !important;
+            color: #e0e0e0 !important;
+        }
+
+        .serial-no {
+            width: 80px;
+            text-align: center;
+            font-weight: 700;
+            color: #8338ec;
+            font-family: 'Orbitron', monospace;
+        }
+
+        /* Sub-tabs for MoM and AIPPM */
+        .sub-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .sub-tab-btn {
+            font-family: 'Space Mono', monospace;
+            background: rgba(20, 20, 30, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(131, 56, 236, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-radius: 15px;
+            color: #e0e0e0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: 
+                5px 5px 15px rgba(0, 0, 0, 0.4),
+                -5px -5px 15px rgba(40, 40, 60, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sub-tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(131, 56, 236, 0.3), transparent);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .sub-tab-btn:hover::before {
+            width: 200px;
+            height: 200px;
+        }
+
+        .sub-tab-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            border-color: rgba(255, 0, 110, 0.5);
+            color: #fff;
+            box-shadow: 
+                8px 8px 25px rgba(0, 0, 0, 0.5),
+                -8px -8px 25px rgba(50, 50, 70, 0.2),
+                0 0 30px rgba(131, 56, 236, 0.3);
+        }
+
+        .sub-tab-btn.active {
+            background: linear-gradient(145deg, rgba(131, 56, 236, 0.2), rgba(255, 0, 110, 0.2));
+            border-color: #ff006e;
+            color: #fff;
+            box-shadow: 
+                inset 5px 5px 15px rgba(0, 0, 0, 0.4),
+                inset -5px -5px 15px rgba(131, 56, 236, 0.1),
+                0 0 30px rgba(255, 0, 110, 0.3);
+        }
+
+        .sub-tab-content {
+            display: none;
+            animation: morphFadeIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .sub-tab-content.active {
+            display: block;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+            height: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 10, 10, 0.4);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #ff006e, #3a86ff);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-island {
+                padding: 0.6rem 1rem;
+                border-radius: 40px;
+            }
+
+            nav button {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.8rem 0.5rem;
+            }
+
+            .sub-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .sub-tab-btn {
+                width: 250px;
+            }
+        }
+
+        /* Floating particles effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff006e, #8338ec);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(1);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <nav>
+        <div class="nav-island">
+            <ul>
+                <li><button onclick="showTab('unga')" class="active">UNGA</button></li>
+                <li><button onclick="showTab('unsc')">UNSC</button></li>
+                <li><button onclick="showTab('unhrc')">UNHRC</button></li>
+                <li><button onclick="showTab('uncsw')">UNCSW</button></li>
+                <li><button onclick="showTab('who')">WHO</button></li>
+                <li><button onclick="showTab('mom')">MoM</button></li>
+                <li><button onclick="showTab('aippm')">AIPPM</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- UNGA Tab -->
+        <div id="unga" class="tab active">
+            <h1>United Nations General Assembly</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="unga-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNSC Tab -->
+        <div id="unsc" class="tab">
+            <h1>United Nations Security Council</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="unsc-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNHRC Tab -->
+        <div id="unhrc" class="tab">
+            <h1>UN Human Rights Council</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Region</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="unhrc-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- UNCSW Tab -->
+        <div id="uncsw" class="tab">
+            <h1>UN Commission on Status of Women</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Region</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="uncsw-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- WHO Tab -->
+        <div id="who" class="tab">
+            <h1>World Health Organization</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th class="serial-no">S.No.</th>
+                        <th>Country</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="who-tbody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- MOM Tab -->
+        <div id="mom" class="tab">
+            <h1>Ministry of Magic</h1>
+            
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active" onclick="showSubTab('auror', 'mom')">Auror Office</button>
+                <button class="sub-tab-btn" onclick="showSubTab('mysteries', 'mom')">Dept. of Mysteries</button>
+                <button class="sub-tab-btn" onclick="showSubTab('law', 'mom')">Magical Law</button>
+                <button class="sub-tab-btn" onclick="showSubTab('games', 'mom')">Games & Sports</button>
+                <button class="sub-tab-btn" onclick="showSubTab('wizengamot', 'mom')">Wizengamot</button>
+            </div>
+
+            <!-- Auror Office -->
+            <div id="auror" class="sub-tab-content active">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="auror-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Department of Mysteries -->
+            <div id="mysteries" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Division</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mysteries-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Magical Law Enforcement -->
+            <div id="law" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="law-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Magical Games and Sports -->
+            <div id="games" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Sport/Division</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="games-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- Wizengamot -->
+            <div id="wizengamot" class="sub-tab-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="wizengamot-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AIPPM Tab -->
+        <div id="aippm" class="tab">
+            <h1>All India Political Party Meeting</h1>
+            
+            <div class="sub-tabs">
+                <button class="sub-tab-btn active" onclick="showSubTab('bjp', 'aippm')" data-fullname="Bharatiya Janata Party">BJP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('inc', 'aippm')" data-fullname="Indian National Congress">INC</button>
+                <button class="sub-tab-btn" onclick="showSubTab('aap', 'aippm')" data-fullname="Aam Aadmi Party">AAP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('tmc', 'aippm')" data-fullname="All India Trinamool Congress">TMC</button>
+                <button class="sub-tab-btn" onclick="showSubTab('dmk', 'aippm')" data-fullname="Dravida Munnetra Kazhagam">DMK</button>
+                <button class="sub-tab-btn" onclick="showSubTab('sp', 'aippm')" data-fullname="Samajwadi Party">SP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('bsp', 'aippm')" data-fullname="Bahujan Samaj Party">BSP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('ncp', 'aippm')" data-fullname="Nationalist Congress Party">NCP</button>
+                <button class="sub-tab-btn" onclick="showSubTab('cpi', 'aippm')" data-fullname="Communist Party of India (Marxist)">CPI(M)</button>
+                <button class="sub-tab-btn" onclick="showSubTab('tdp', 'aippm')" data-fullname="Telugu Desam Party">TDP</button>
+            </div>
+
+            <!-- BJP -->
+            <div id="bjp" class="sub-tab-content active">
+                <h2 class="party-full-name">Bharatiya Janata Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bjp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- INC -->
+            <div id="inc" class="sub-tab-content">
+                <h2 class="party-full-name">Indian National Congress</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inc-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- AAP -->
+            <div id="aap" class="sub-tab-content">
+                <h2 class="party-full-name">Aam Aadmi Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="aap-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- TMC -->
+            <div id="tmc" class="sub-tab-content">
+                <h2 class="party-full-name">All India Trinamool Congress</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tmc-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- DMK -->
+            <div id="dmk" class="sub-tab-content">
+                <h2 class="party-full-name">Dravida Munnetra Kazhagam</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dmk-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- SP -->
+            <div id="sp" class="sub-tab-content">
+                <h2 class="party-full-name">Samajwadi Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- BSP -->
+            <div id="bsp" class="sub-tab-content">
+                <h2 class="party-full-name">Bahujan Samaj Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bsp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- NCP -->
+            <div id="ncp" class="sub-tab-content">
+                <h2 class="party-full-name">Nationalist Congress Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ncp-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- CPI(M) -->
+            <div id="cpi" class="sub-tab-content">
+                <h2 class="party-full-name">Communist Party of India (Marxist)</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cpi-tbody"></tbody>
+                </table>
+            </div>
+
+            <!-- TDP -->
+            <div id="tdp" class="sub-tab-content">
+                <h2 class="party-full-name">Telugu Desam Party</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="serial-no">S.No.</th>
+                            <th>Member Name</th>
+                            <th>Position</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tdp-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="matrixUpdater.js"></script>
+</body>
+</html>

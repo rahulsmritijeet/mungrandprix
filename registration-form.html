@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUN Grand Prix Registration</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&family=Bebas+Neue&family=Montserrat:wght@700,900&family=Playfair+Display:wght@700,900&display=swap"
+        rel="stylesheet">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: #000000;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Multi-layer gradient background */
+        .gradient-bg {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        .gradient-layer-1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at top left, rgba(0, 50, 150, 0.4) 0%, transparent 40%),
+                radial-gradient(ellipse at bottom right, rgba(100, 50, 200, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at center, rgba(0, 30, 80, 0.5) 0%, transparent 60%);
+            animation: gradientShift 20s ease-in-out infinite;
+        }
+
+        .gradient-layer-2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg,
+                    rgba(0, 0, 0, 0.9) 0%,
+                    rgba(0, 20, 60, 0.7) 25%,
+                    rgba(0, 0, 40, 0.8) 50%,
+                    rgba(20, 0, 50, 0.7) 75%,
+                    rgba(0, 0, 0, 0.9) 100%);
+            animation: gradientRotate 30s linear infinite;
+        }
+
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+            }
+
+            50% {
+                transform: scale(1.2) rotate(5deg);
+            }
+        }
+
+        @keyframes gradientRotate {
+            0% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Twinkling stars */
+        .stars-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle var(--duration) var(--delay) infinite;
+        }
+
+        @keyframes twinkle {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: linear-gradient(135deg, #0080ff, #00ffff);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatUp 20s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(0);
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) translateX(100px);
+            }
+        }
+
+        /* Main app container */
+        .app-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Enhanced glassmorphism container */
+        .registration-container {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow:
+                0 0 40px rgba(0, 100, 255, 0.1),
+                0 0 80px rgba(0, 50, 150, 0.05),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .registration-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(0, 150, 255, 0.5),
+                    rgba(100, 100, 255, 0.5),
+                    transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header styles with new font */
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .form-header h1 {
+            font-family: 'Montserrat', 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #00b3ff, #0080ff, #8866ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            animation: gradientText 4s ease infinite;
+            text-shadow: 0 4px 30px rgba(0, 128, 255, 0.4);
+        }
+
+        @keyframes gradientText {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .form-header p {
+            font-family: 'Playfair Display', serif;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.3rem;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* Form elements with enhanced glassmorphism */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-control:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(0, 150, 255, 0.5);
+            box-shadow:
+                0 0 0 3px rgba(0, 150, 255, 0.1),
+                0 0 20px rgba(0, 150, 255, 0.15);
+        }
+
+        /* Enhanced disabled option styling */
+        select.form-control option:disabled {
+            color: rgba(255, 255, 255, 0.3);
+            font-style: italic;
+            background: rgba(10, 10, 20, 0.95);
+            cursor: not-allowed;
+        }
+
+        /* For webkit browsers (Chrome, Safari) */
+        select.form-control option:disabled {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* For Firefox */
+        select.form-control option:disabled {
+            color: #666;
+            font-style: italic;
+        }
+
+        select.form-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(0,179,255,0.7)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        select.form-control option {
+            background: rgba(0, 10, 30, 0.95);
+            color: white;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.5;
+        }
+
+        /* Enhanced committee blocks with glassmorphism */
+        .committee-block {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .committee-block::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg,
+                    transparent 30%,
+                    rgba(0, 150, 255, 0.1),
+                    transparent 70%);
+            border-radius: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: -1;
+        }
+
+        .committee-block:hover::after {
+            opacity: 1;
+        }
+
+        .committee-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .committee-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #0080ff, #0066cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 128, 255, 0.3);
+        }
+
+        .committee-title {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Special sections with smooth transitions */
+        .special-committee-section {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            margin-top: 0;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(-20px);
+        }
+
+        .special-committee-section.active {
+            max-height: 2000px;
+            opacity: 1;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            transform: translateY(0);
+        }
+
+        .special-item {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #0080ff, #0066cc, #5537a5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 128, 255, 0.3);
+        }
+
+        /* Success message */
+        .success-message {
+            background: rgba(0, 255, 100, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 255, 100, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            animation: slideDown 0.5s ease;
+        }
+
+        .success-message h3 {
+            color: #00ff64;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-message p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: #0080ff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Section titles */
+        .section-title {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::before {
+            content: '◆';
+            color: #0080ff;
+            font-size: 1rem;
+        }
+
+        /* Portfolio grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .portfolio-label {
+            font-size: 0.85rem;
+            color: rgba(0, 179, 255, 0.8);
+            margin-bottom: 0.3rem;
+        }
+
+        .special-header {
+            color: #00b3ff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0, 128, 255, 0.2);
+        }
+
+        .special-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .special-item-header {
+            color: #00b3ff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+        }
+
+        /* Disabled text styling */
+        .disabled-text {
+            color: rgba(255, 255, 255, 0.4);
+            font-style: italic;
+        }
+
+        /* Experience Details Section */
+        .experience-details-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            animation: fadeInUp 0.5s ease;
+        }
+
+        /* Awards Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .award-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .award-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .award-icon.best-delegate {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+        }
+
+        .award-icon.special-mention {
+            background: linear-gradient(135deg, #C0C0C0, #808080);
+            color: #000;
+        }
+
+        .award-icon.verbal-mention {
+            background: linear-gradient(135deg, #CD7F32, #8B4513);
+            color: #fff;
+        }
+
+        .award-icon.participation {
+            background: linear-gradient(135deg, #0080ff, #0066cc);
+            color: #fff;
+        }
+
+        .award-content {
+            flex: 1;
+        }
+
+        .award-content label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .award-input {
+            max-width: 100px;
+        }
+
+        /* Experience Summary */
+        .experience-summary {
+            background: linear-gradient(135deg, rgba(0, 128, 255, 0.1), rgba(102, 51, 255, 0.1));
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-header {
+            color: #00b3ff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .summary-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .summary-stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00b3ff, #8866ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .registration-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-header h1 {
+                font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .committee-block {
+                padding: 1.5rem;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary-content {
+                gap: 1rem;
+            }
+
+            .stat-value {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gradient-bg">
+        <div class="gradient-layer-1"></div>
+        <div class="gradient-layer-2"></div>
+    </div>
+
+    <div class="stars-container" id="starsContainer"></div>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        const { useState, useEffect, useMemo } = React;
+
+        // API URL
+        const API_URL = 'http://localhost:3000/api';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const starsContainer = document.getElementById('starsContainer');
+            if (starsContainer) {
+                for (let i = 0; i < 100; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.width = Math.random() * 3 + 'px';
+                    star.style.height = star.style.width;
+                    star.style.left = Math.random() * 100 + '%';
+                    star.style.top = Math.random() * 100 + '%';
+                    star.style.setProperty('--duration', (Math.random() * 3 + 2) + 's');
+                    star.style.setProperty('--delay', Math.random() * 3 + 's');
+                    starsContainer.appendChild(star);
+                }
+
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 20 + 's';
+                    particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+                    starsContainer.appendChild(particle);
+                }
+            }
+        });
+
+        function RegistrationForm() {
+            const initialFormData = {
+                fullName: '',
+                email: '',
+                phone: '',
+                dob: '',
+                class: '',
+                school: '',
+                committee1: '',
+                committee2: '',
+                committee3: '',
+                experience: '',
+                bestDelegate: '',
+                specialMention: '',
+                verbalMention: '',
+                participation: '',
+                experienceDetails: ''
+            };
+
+            const [formData, setFormData] = useState(initialFormData);
+            const [loading, setLoading] = useState(false);
+            const [showSuccess, setShowSuccess] = useState(false);
+            const [committeeSelections, setCommitteeSelections] = useState({
+                1: { committee: '', portfolios: {}, specialData: {} },
+                2: { committee: '', portfolios: {}, specialData: {} },
+                3: { committee: '', portfolios: {}, specialData: {} }
+            });
+
+            // Dynamic portfolio states
+            const [committees, setCommittees] = useState({});
+            const [momDepartments, setMomDepartments] = useState([]);
+            const [momPositions, setMomPositions] = useState({});
+            const [aippmParties, setAippmParties] = useState([]);
+            const [aippmPositions, setAippmPositions] = useState({});
+            const [allottedPortfolios, setAllottedPortfolios] = useState(new Set());
+            const [portfoliosLoading, setPortfoliosLoading] = useState(true);
+
+            // Fetch portfolios from backend
+            useEffect(() => {
+                fetchPortfoliosFromBackend();
+                // Refresh portfolio availability every 30 seconds
+                const interval = setInterval(fetchPortfolioAvailability, 30000);
+                return () => clearInterval(interval);
+            }, []);
+
+
+            const fetchPortfoliosFromBackend = async () => {
+                try {
+                    console.log('Fetching portfolios...');
+                    const response = await fetch(`${API_URL}/portfolios`);
+                    console.log('Response status:', response.status);
+                    const portfoliosData = await response.json();
+                    console.log('Portfolios data received:', portfoliosData);
+
+                    // Initialize committee structures
+                    const newCommittees = {
+                        UNGA: [],
+                        UNSC: [],
+                        UNHRC: [],
+                        UNCSW: [],
+                        WHO: []
+                    };
+
+                    // Process regular committees
+                    Object.keys(portfoliosData).forEach(committee => {
+                        if (committee !== 'MOM' && committee !== 'AIPPM') {
+                            newCommittees[committee] = portfoliosData[committee].map(p => p.name);
+                        }
+                    });
+
+                    console.log('Committees processed:', newCommittees);
+                    setCommittees(newCommittees);
+
+                    // Process MOM departments
+                    if (portfoliosData.MOM) {
+                        console.log('Processing MOM departments...');
+                        const deptMapping = {
+                            'auror': 'Auror Office',
+                            'mysteries': 'Department of Mysteries',
+                            'law': 'Magical Law Enforcement',
+                            'games': 'Department of Magical Games and Sports',
+                            'wizengamot': 'Wizengamot'
+                        };
+
+                        const depts = Object.keys(portfoliosData.MOM).map(key => deptMapping[key] || key);
+                        console.log('MOM departments:', depts);
+                        setMomDepartments(depts);
+
+                        const positions = {};
+                        Object.keys(portfoliosData.MOM).forEach(dept => {
+                            const displayName = deptMapping[dept] || dept;
+                            positions[displayName] = portfoliosData.MOM[dept].map(p => p.name);
+                        });
+                        console.log('MOM positions:', positions);
+                        setMomPositions(positions);
+                    }
+
+                    // Process AIPPM parties
+                    if (portfoliosData.AIPPM) {
+                        console.log('Processing AIPPM parties...');
+                        const partyMapping = {
+                            'bjp': { code: 'BJP', name: 'Bharatiya Janata Party' },
+                            'inc': { code: 'INC', name: 'Indian National Congress' },
+                            'aap': { code: 'AAP', name: 'Aam Aadmi Party' },
+                            'tmc': { code: 'TMC', name: 'All India Trinamool Congress' },
+                            'dmk': { code: 'DMK', name: 'Dravida Munnetra Kazhagam' },
+                            'sp': { code: 'SP', name: 'Samajwadi Party' },
+                            'ncp': { code: 'NCP', name: 'Nationalist Congress Party' },
+                            'bsp': { code: 'BSP', name: 'Bahujan Samaj Party' },
+                            'cpi': { code: 'CPI(M)', name: 'Communist Party of India (Marxist)' },
+                            'tdp': { code: 'TDP', name: 'Telugu Desam Party' }
+                        };
+
+                        const parties = Object.keys(portfoliosData.AIPPM).map(key =>
+                            partyMapping[key] || { code: key.toUpperCase(), name: key }
+                        );
+                        console.log('AIPPM parties:', parties);
+                        setAippmParties(parties);
+
+                        const positions = {};
+                        Object.keys(portfoliosData.AIPPM).forEach(party => {
+                            const partyCode = partyMapping[party]?.code || party.toUpperCase();
+                            positions[partyCode] = portfoliosData.AIPPM[party].map(p => p.name);
+                        });
+                        console.log('AIPPM positions:', positions);
+                        setAippmPositions(positions);
+                    }
+
+                    console.log('Setting portfoliosLoading to false');
+                    setPortfoliosLoading(false);
+
+                    // Fetch availability after loading portfolios
+                    await fetchPortfolioAvailability();
+
+                } catch (error) {
+                    console.error('Error fetching portfolios from backend:', error);
+                    console.log('Setting portfoliosLoading to false due to error');
+                    setPortfoliosLoading(false);
+                }
+            };;
+
+            const fetchPortfolioAvailability = async () => {
+                try {
+                    const registrationsResponse = await fetch(`${API_URL}/registrations`);
+                    const registrations = await registrationsResponse.json();
+
+                    const allotted = new Set();
+
+                    // Process registrations for allocated portfolios
+                    registrations.forEach(reg => {
+                        if (reg.allocation && reg.allocation.portfolio && reg.allocation.status !== 'Pending') {
+                            const { committee, portfolio, subCommittee } = reg.allocation;
+
+                            if (subCommittee) {
+                                allotted.add(`${committee}-${subCommittee}-${portfolio}`);
+                            } else {
+                                allotted.add(`${committee}-${portfolio}`);
+                            }
+                        }
+                    });
+
+                    setAllottedPortfolios(allotted);
+
+                } catch (error) {
+                    console.error('Error fetching portfolio availability:', error);
+                }
+            };
+
+            const getPartyFullName = (code) => {
+                const partyNames = {
+                    'BJP': 'Bharatiya Janata Party',
+                    'INC': 'Indian National Congress',
+                    'AAP': 'Aam Aadmi Party',
+                    'TMC': 'All India Trinamool Congress',
+                    'DMK': 'Dravida Munnetra Kazhagam',
+                    'SP': 'Samajwadi Party',
+                    'NCP': 'Nationalist Congress Party',
+                    'BSP': 'Bahujan Samaj Party',
+                    'TDP': 'Telugu Desam Party',
+                    'CPI(M)': 'Communist Party of India (Marxist)'
+                };
+                return partyNames[code] || code;
+            };
+
+            const isPortfolioAvailable = (committee, portfolio, subCommittee = null) => {
+                if (subCommittee) {
+                    return !allottedPortfolios.has(`${committee}-${subCommittee}-${portfolio}`);
+                } else {
+                    return !allottedPortfolios.has(`${committee}-${portfolio}`);
+                }
+            };
+
+            const calculateTotalConferences = () => {
+                return (parseInt(formData.bestDelegate || 0) +
+                    parseInt(formData.specialMention || 0) +
+                    parseInt(formData.verbalMention || 0) +
+                    parseInt(formData.participation || 0));
+            };
+
+            const calculateTotalAwards = () => {
+                return (parseInt(formData.bestDelegate || 0) +
+                    parseInt(formData.specialMention || 0) +
+                    parseInt(formData.verbalMention || 0));
+            };
+
+            const calculateSuccessRate = () => {
+                const total = calculateTotalConferences();
+                const awards = calculateTotalAwards();
+                return total > 0 ? Math.round((awards / total) * 100) : 0;
+            };
+
+            const selectedCommittees = useMemo(() => {
+                return Object.values(committeeSelections)
+                    .map(sel => sel.committee)
+                    .filter(Boolean);
+            }, [committeeSelections]);
+
+            const getSelectedPortfoliosForCommittee = (num) => {
+                const selection = committeeSelections[num];
+                if (!selection.portfolios) return [];
+                return Object.values(selection.portfolios).filter(Boolean);
+            };
+
+            const getSelectedMoMDepartmentsForCommittee = (num) => {
+                const selection = committeeSelections[num];
+                if (!selection.specialData) return [];
+                return ['dept1', 'dept2', 'dept3']
+                    .map(key => selection.specialData[key])
+                    .filter(Boolean);
+            };
+
+            const getSelectedMoMPositionsForCommittee = (num, deptIndex) => {
+                const selection = committeeSelections[num];
+                if (!selection.specialData) return [];
+                const positions = [];
+
+                for (let j = 1; j <= 2; j++) {
+                    const key = `dept${deptIndex}_pos${j}`;
+                    if (selection.specialData[key]) {
+                        positions.push(selection.specialData[key]);
+                    }
+                }
+
+                return positions;
+            };
+
+            const getSelectedAIPPMPartiesForCommittee = (num) => {
+                const selection = committeeSelections[num];
+                if (!selection.specialData) return [];
+                return ['party1', 'party2', 'party3']
+                    .map(key => selection.specialData[key])
+                    .filter(Boolean);
+            };
+
+            const getSelectedAIPPMPositionsForCommittee = (num, partyIndex) => {
+                const selection = committeeSelections[num];
+                if (!selection.specialData) return [];
+                const positions = [];
+
+                for (let j = 1; j <= 2; j++) {
+                    const key = `party${partyIndex}_pos${j}`;
+                    if (selection.specialData[key]) {
+                        positions.push(selection.specialData[key]);
+                    }
+                }
+
+                return positions;
+            };
+
+            const handleInputChange = (e) => {
+                const { name, value } = e.target;
+                setFormData(prev => ({ ...prev, [name]: value }));
+            };
+
+            const handleCommitteeChange = (num, value) => {
+                setFormData(prev => ({ ...prev, [`committee${num}`]: value }));
+                setCommitteeSelections(prev => ({
+                    ...prev,
+                    [num]: {
+                        committee: value,
+                        portfolios: {},
+                        specialData: {}
+                    }
+                }));
+            };
+
+            const handlePortfolioChange = (committeeNum, portfolioNum, value) => {
+                setCommitteeSelections(prev => ({
+                    ...prev,
+                    [committeeNum]: {
+                        ...prev[committeeNum],
+                        portfolios: {
+                            ...prev[committeeNum].portfolios,
+                            [portfolioNum]: value
+                        }
+                    }
+                }));
+            };
+
+            const handleSpecialDataChange = (committeeNum, key, value) => {
+                setCommitteeSelections(prev => ({
+                    ...prev,
+                    [committeeNum]: {
+                        ...prev[committeeNum],
+                        specialData: {
+                            ...prev[committeeNum].specialData,
+                            [key]: value
+                        }
+                    }
+                }));
+            };
+
+            const resetForm = () => {
+                setFormData(initialFormData);
+                setCommitteeSelections({
+                    1: { committee: '', portfolios: {}, specialData: {} },
+                    2: { committee: '', portfolios: {}, specialData: {} },
+                    3: { committee: '', portfolios: {}, specialData: {} }
+                });
+            };
+
+            const handleSubmit = async (e) => {
+                e.preventDefault();
+                setLoading(true);
+
+                try {
+                    // Prepare preferences in the format expected by the server
+                    const preferences = {};
+
+                    // Process each committee preference
+                    for (let i = 1; i <= 3; i++) {
+                        const selection = committeeSelections[i];
+
+                        if (selection && selection.committee) {
+                            preferences[`preference${i}`] = {
+                                committee: selection.committee,
+                                portfolio: null,
+                                subCommittee: null
+                            };
+
+                            // For regular committees
+                            if (selection.committee !== 'MOM' && selection.committee !== 'AIPPM') {
+                                // Get first selected portfolio
+                                const firstPortfolio = selection.portfolios && selection.portfolios[1];
+                                if (firstPortfolio) {
+                                    preferences[`preference${i}`].portfolio = firstPortfolio;
+                                }
+                            }
+
+                            // For MOM
+                            else if (selection.committee === 'MOM' && selection.specialData) {
+                                // Get first department with a position
+                                for (let d = 1; d <= 3; d++) {
+                                    const dept = selection.specialData[`dept${d}`];
+                                    const pos = selection.specialData[`dept${d}_pos1`];
+
+                                    if (dept && pos) {
+                                        preferences[`preference${i}`].subCommittee = dept;
+                                        preferences[`preference${i}`].portfolio = pos;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            // For AIPPM
+                            else if (selection.committee === 'AIPPM' && selection.specialData) {
+                                // Get first party with a position
+                                for (let p = 1; p <= 3; p++) {
+                                    const party = selection.specialData[`party${p}`];
+                                    const pos = selection.specialData[`party${p}_pos1`];
+
+                                    if (party && pos) {
+                                        preferences[`preference${i}`].subCommittee = party;
+                                        preferences[`preference${i}`].portfolio = pos;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Prepare complete submission data
+                    const submissionData = {
+                        // Personal Information
+                        name: formData.fullName,
+                        email: formData.email,
+                        phone: formData.phone,
+                        dob: formData.dob,
+                        class: formData.class,
+                        institution: formData.school,
+
+                        // Experience
+                        experience: formData.experience || '0',
+                        bestDelegate: parseInt(formData.bestDelegate) || 0,
+                        specialMention: parseInt(formData.specialMention) || 0,
+                        verbalMention: parseInt(formData.verbalMention) || 0,
+                        participation: parseInt(formData.participation) || 0,
+                        experienceDetails: formData.experienceDetails || '',
+
+                        // Preferences
+                        preferences: preferences,
+
+                        // Full committee selections for detailed view in admin panel
+                        fullSelections: committeeSelections
+                    };
+
+                    // Send to backend
+                    const response = await fetch(`${API_URL}/register`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(submissionData)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        setShowSuccess(true);
+
+                        // Show success message with registration number
+                        alert(`✅ Registration successful!\n\nYour Registration ID: MUN2024-${result.id}\n\nYou will receive a confirmation email shortly.`);
+
+                        resetForm();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                        // Refresh portfolio availability
+                        fetchPortfolioAvailability();
+
+                        setTimeout(() => {
+                            setShowSuccess(false);
+                        }, 5000);
+                    } else {
+                        alert('❌ Registration failed: ' + (result.message || 'Unknown error'));
+                    }
+                } catch (error) {
+                    console.error('Error submitting registration:', error);
+                    alert('❌ Network error. Please ensure the server is running at http://localhost:3000');
+                } finally {
+                    setLoading(false);
+                }
+            };
+
+            const renderCommitteeBlock = (num) => {
+                const committee = committeeSelections[num].committee;
+                const isSpecialCommittee = committee === 'MOM' || committee === 'AIPPM';
+
+                const selectedPortfolios = getSelectedPortfoliosForCommittee(num);
+                const selectedMoMDepartments = getSelectedMoMDepartmentsForCommittee(num);
+                const selectedAIPPMParties = getSelectedAIPPMPartiesForCommittee(num);
+
+                return (
+                    <div className="committee-block" key={num}>
+                        <div className="committee-header">
+                            <div className="committee-number">{num}</div>
+                            <div className="committee-title">
+                                {num === 1 ? 'First' : num === 2 ? 'Second' : 'Third'} Committee Preference
+                            </div>
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor={`committee${num}`}>
+                                Select Committee {num === 1 ? '*' : ''}
+                            </label>
+                            <select
+                                className="form-control"
+                                id={`committee${num}`}
+                                value={committeeSelections[num].committee}
+                                onChange={(e) => handleCommitteeChange(num, e.target.value)}
+                                required={num === 1}
+                            >
+                                <option value="">
+                                    Choose your {num === 1 ? 'first' : num === 2 ? 'second' : 'third'} committee
+                                    {num !== 1 ? ' (optional)' : ''}
+                                </option>
+                                {['AIPPM', 'MOM', 'UNCSW', 'UNGA', 'UNHRC', 'UNSC', 'WHO'].map(comm => {
+                                    const isDisabled = selectedCommittees.includes(comm) && committeeSelections[num].committee !== comm;
+                                    return (
+                                        <option key={comm} value={comm} disabled={isDisabled}>
+                                            {comm === 'UNGA' && 'UNGA - United Nations General Assembly'}
+                                            {comm === 'UNSC' && 'UNSC - United Nations Security Council'}
+                                            {comm === 'UNHRC' && 'UNHRC - UN Human Rights Council'}
+                                            {comm === 'UNCSW' && 'UNCSW - UN Commission on Status of Women'}
+                                            {comm === 'WHO' && 'WHO - World Health Organization'}
+                                            {comm === 'MOM' && 'MoM - Ministry of Magic'}
+                                            {comm === 'AIPPM' && 'AIPPM - All India Political Party Meet'}
+                                            {isDisabled && ' (already chosen)'}
+                                        </option>
+                                    );
+                                })}
+                            </select>
+                        </div>
+
+                        {!isSpecialCommittee && committee && (
+                            <div className="portfolio-grid">
+                                {portfoliosLoading ? (
+                                    <div style={{ color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center', padding: '20px' }}>
+                                        Loading portfolios...
+                                    </div>
+                                ) : (
+                                    [1, 2, 3].map(i => (
+                                        <div className="portfolio-item" key={i}>
+                                            <div className="portfolio-label">
+                                                Portfolio Choice {num}.{i} {i <= 2 && num === 1 ? '*' : ''}
+                                            </div>
+                                            <select
+                                                className="form-control"
+                                                value={committeeSelections[num].portfolios[i] || ''}
+                                                onChange={(e) => handlePortfolioChange(num, i, e.target.value)}
+                                                required={num === 1 && i <= 2}
+                                            >
+                                                <option value="">Select portfolio</option>
+                                                {committees[committee]?.map(portfolio => {
+                                                    const isDisabled = selectedPortfolios.includes(portfolio) &&
+                                                        committeeSelections[num].portfolios[i] !== portfolio;
+                                                    const isAllotted = !isPortfolioAvailable(committee, portfolio);
+                                                    return (
+                                                        <option
+                                                            key={portfolio}
+                                                            value={portfolio}
+                                                            disabled={isDisabled || isAllotted}
+                                                            style={{ color: isAllotted ? '#ff6666' : '' }}
+                                                        >
+                                                            {portfolio}
+                                                            {isDisabled && ' (already chosen)'}
+                                                            {isAllotted && ' (Allotted)'}
+                                                        </option>
+                                                    );
+                                                })}
+                                            </select>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        )}
+
+                        {committee === 'MOM' && (
+                            <div className="special-committee-section active">
+                                <div className="special-header">Ministry of Magic - Department Preferences</div>
+                                <div className="special-grid">
+                                    {[1, 2, 3].map(i => (
+                                        <div className="special-item" key={i} style={{ '--delay': `${i * 0.1}s` }}>
+                                            <div className="special-item-header">Department Preference {i}</div>
+                                            <div className="form-group">
+                                                <label>Select Department</label>
+                                                <select
+                                                    className="form-control"
+                                                    value={committeeSelections[num].specialData[`dept${i}`] || ''}
+                                                    onChange={(e) => handleSpecialDataChange(num, `dept${i}`, e.target.value)}
+                                                >
+                                                    <option value="">Choose department</option>
+                                                    {momDepartments.map(dept => {
+                                                        const isDisabled = selectedMoMDepartments.includes(dept) &&
+                                                            committeeSelections[num].specialData[`dept${i}`] !== dept;
+                                                        return (
+                                                            <option key={dept} value={dept} disabled={isDisabled}>
+                                                                {dept}{isDisabled && ' (already chosen)'}
+                                                            </option>
+                                                        );
+                                                    })}
+                                                </select>
+                                            </div>
+                                            {committeeSelections[num].specialData[`dept${i}`] && (
+                                                <div className="portfolio-grid" style={{ marginTop: '1rem' }}>
+                                                    {[1, 2].map(j => {
+                                                        const selectedPositions = getSelectedMoMPositionsForCommittee(num, i);
+                                                        const dept = committeeSelections[num].specialData[`dept${i}`];
+                                                        return (
+                                                            <div className="portfolio-item" key={j}>
+                                                                <div className="portfolio-label">Position {i}.{j}</div>
+                                                                <select
+                                                                    className="form-control"
+                                                                    value={committeeSelections[num].specialData[`dept${i}_pos${j}`] || ''}
+                                                                    onChange={(e) => handleSpecialDataChange(num, `dept${i}_pos${j}`, e.target.value)}
+                                                                >
+                                                                    <option value="">Select position</option>
+                                                                    {momPositions[dept]?.map(pos => {
+                                                                        const isDisabled = selectedPositions.includes(pos) &&
+                                                                            committeeSelections[num].specialData[`dept${i}_pos${j}`] !== pos;
+                                                                        const isAllotted = !isPortfolioAvailable('MOM', pos, dept);
+                                                                        return (
+                                                                            <option
+                                                                                key={pos}
+                                                                                value={pos}
+                                                                                disabled={isDisabled || isAllotted}
+                                                                                style={{ color: isAllotted ? '#ff6666' : '' }}
+                                                                            >
+                                                                                {pos}
+                                                                                {isDisabled && ' (already chosen)'}
+                                                                                {isAllotted && ' (Allotted)'}
+                                                                            </option>
+                                                                        );
+                                                                    })}
+                                                                </select>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {committee === 'AIPPM' && (
+                            <div className="special-committee-section active">
+                                <div className="special-header">AIPPM - Political Party Preferences</div>
+                                <div className="special-grid">
+                                    {[1, 2, 3].map(i => (
+                                        <div className="special-item" key={i} style={{ '--delay': `${i * 0.1}s` }}>
+                                            <div className="special-item-header">Political Party Preference {i}</div>
+                                            <div className="form-group">
+                                                <label>Select Party</label>
+                                                <select
+                                                    className="form-control"
+                                                    value={committeeSelections[num].specialData[`party${i}`] || ''}
+                                                    onChange={(e) => handleSpecialDataChange(num, `party${i}`, e.target.value)}
+                                                >
+                                                    <option value="">Choose party</option>
+                                                    {aippmParties.map(party => {
+                                                        const isDisabled = selectedAIPPMParties.includes(party.code) &&
+                                                            committeeSelections[num].specialData[`party${i}`] !== party.code;
+                                                        return (
+                                                            <option key={party.code} value={party.code} disabled={isDisabled}>
+                                                                {party.code} - {party.name}
+                                                                {isDisabled && ' (already chosen)'}
+                                                            </option>
+                                                        );
+                                                    })}
+                                                </select>
+                                            </div>
+                                            {committeeSelections[num].specialData[`party${i}`] && (
+                                                <div className="portfolio-grid" style={{ marginTop: '1rem' }}>
+                                                    {[1, 2].map(j => {
+                                                        const selectedPositions = getSelectedAIPPMPositionsForCommittee(num, i);
+                                                        const party = committeeSelections[num].specialData[`party${i}`];
+                                                        return (
+                                                            <div className="portfolio-item" key={j}>
+                                                                <div className="portfolio-label">Position {i}.{j}</div>
+                                                                <select
+                                                                    className="form-control"
+                                                                    value={committeeSelections[num].specialData[`party${i}_pos${j}`] || ''}
+                                                                    onChange={(e) => handleSpecialDataChange(num, `party${i}_pos${j}`, e.target.value)}
+                                                                >
+                                                                    <option value="">Select position</option>
+                                                                    {aippmPositions[party]?.map(pos => {
+                                                                        const isDisabled = selectedPositions.includes(pos) &&
+                                                                            committeeSelections[num].specialData[`party${i}_pos${j}`] !== pos;
+                                                                        const isAllotted = !isPortfolioAvailable('AIPPM', pos, party);
+                                                                        return (
+                                                                            <option
+                                                                                key={pos}
+                                                                                value={pos}
+                                                                                disabled={isDisabled || isAllotted}
+                                                                                style={{ color: isAllotted ? '#ff6666' : '' }}
+                                                                            >
+                                                                                {pos}
+                                                                                {isDisabled && ' (already chosen)'}
+                                                                                {isAllotted && ' (Allotted)'}
+                                                                            </option>
+                                                                        );
+                                                                    })}
+                                                                </select>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            )}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                );
+            };
+
+            if (portfoliosLoading) {
+                return (
+                    <div className="app-container">
+                        <div className="registration-container" style={{ textAlign: 'center', padding: '4rem' }}>
+                            <div className="loading-spinner"></div>
+                            <p style={{ color: 'rgba(255, 255, 255, 0.8)', marginTop: '2rem' }}>
+                                Loading registration form...
+                            </p>
+                        </div>
+                    </div>
+                );
+            }
+
+            return (
+                <div className="app-container">
+                    <div className="registration-container">
+                        <div className="form-header">
+                            <h1>MUN Grand Prix</h1>
+                            <p>Join the Global Dialogue</p>
+                        </div>
+
+                        {showSuccess && (
+                            <div className="success-message">
+                                <h3>✨ Registration Submitted Successfully!</h3>
+                                <p>We'll send you a confirmation email within 24 hours.</p>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="fullName">Full Name *</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="fullName"
+                                        name="fullName"
+                                        value={formData.fullName}
+                                        onChange={handleInputChange}
+                                        placeholder="Enter your full name"
+                                        required
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="email">Email Address *</label>
+                                    <input
+                                        type="email"
+                                        className="form-control"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        placeholder="your.email@example.com"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="phone">Phone Number (India) *</label>
+                                    <input
+                                        type="tel"
+                                        className="form-control"
+                                        id="phone"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        placeholder="+91 98765 43210"
+                                        pattern="^(\+91)?[6-9]\d{9}$"
+                                        required
+                                    />
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="dob">Date of Birth *</label>
+                                    <input
+                                        type="date"
+                                        className="form-control"
+                                        id="dob"
+                                        name="dob"
+                                        value={formData.dob}
+                                        onChange={handleInputChange}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="class">Class/Grade *</label>
+                                    <select
+                                        className="form-control"
+                                        id="class"
+                                        name="class"
+                                        value={formData.class}
+                                        onChange={handleInputChange}
+                                        required
+                                    >
+                                        <option value="">Select your class</option>
+                                        <option value="8">Class 8</option>
+                                        <option value="9">Class 9</option>
+                                        <option value="10">Class 10</option>
+                                        <option value="11">Class 11</option>
+                                        <option value="12">Class 12</option>
+                                        <option value="undergraduate">Undergraduate</option>
+                                        <option value="postgraduate">Postgraduate</option>
+                                    </select>
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="school">School/Institution *</label>
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="school"
+                                        name="school"
+                                        value={formData.school}
+                                        onChange={handleInputChange}
+                                        placeholder="Enter your school name"
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <h3 className="section-title">Committee & Portfolio Preferences</h3>
+
+                            {[1, 2, 3].map(num => renderCommitteeBlock(num))}
+
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="experience">Previous MUN Experiences *</label>
+                                    <select
+                                        className="form-control"
+                                        id="experience"
+                                        name="experience"
+                                        value={formData.experience}
+                                        onChange={handleInputChange}
+                                        required
+                                    >
+                                        <option value="">Select number of conferences</option>
+                                        <option value="0">No prior experience</option>
+                                        <option value="1">1 conference</option>
+                                        <option value="2">2 conferences</option>
+                                        <option value="3">3 conferences</option>
+                                        <option value="4">4 conferences</option>
+                                        <option value="5">5 conferences</option>
+                                        <option value="6-10">6-10 conferences</option>
+                                        <option value="11-20">11-20 conferences</option>
+                                        <option value="21-30">21-30 conferences</option>
+                                        <option value="30+">More than 30 conferences</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            {formData.experience && formData.experience !== '0' && (
+                                <div className="experience-details-section">
+                                    <h3 className="section-title">Award Details</h3>
+                                    <p style={{ color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', marginBottom: '1.5rem' }}>
+                                        Please specify the number of awards you've received in your MUN journey
+                                    </p>
+
+                                    <div className="awards-grid">
+                                        <div className="award-item">
+                                            <div className="award-icon best-delegate">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg>
+                                            </div>
+                                            <div className="award-content">
+                                                <label htmlFor="bestDelegate">Best Delegate Awards</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control award-input"
+                                                    id="bestDelegate"
+                                                    name="bestDelegate"
+                                                    value={formData.bestDelegate || ''}
+                                                    onChange={handleInputChange}
+                                                    placeholder="0"
+                                                    min="0"
+                                                    max="50"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="award-item">
+                                            <div className="award-icon special-mention">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <circle cx="12" cy="8" r="7" />
+                                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                                                </svg>
+                                            </div>
+                                            <div className="award-content">
+                                                <label htmlFor="specialMention">Special Mention Awards</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control award-input"
+                                                    id="specialMention"
+                                                    name="specialMention"
+                                                    value={formData.specialMention || ''}
+                                                    onChange={handleInputChange}
+                                                    placeholder="0"
+                                                    min="0"
+                                                    max="50"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="award-item">
+                                            <div className="award-icon verbal-mention">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                                </svg>
+                                            </div>
+                                            <div className="award-content">
+                                                <label htmlFor="verbalMention">Verbal Mention Awards</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control award-input"
+                                                    id="verbalMention"
+                                                    name="verbalMention"
+                                                    value={formData.verbalMention || ''}
+                                                    onChange={handleInputChange}
+                                                    placeholder="0"
+                                                    min="0"
+                                                    max="50"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        <div className="award-item">
+                                            <div className="award-icon participation">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                                    <circle cx="9" cy="7" r="4" />
+                                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                                </svg>
+                                            </div>
+                                            <div className="award-content">
+                                                <label htmlFor="participation">Participations (No Award)</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control award-input"
+                                                    id="participation"
+                                                    name="participation"
+                                                    value={formData.participation || ''}
+                                                    onChange={handleInputChange}
+                                                    placeholder="0"
+                                                    min="0"
+                                                    max="50"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {(formData.bestDelegate || formData.specialMention || formData.verbalMention || formData.participation) && (
+                                        <div className="experience-summary">
+                                            <div className="summary-header">Your MUN Journey Summary</div>
+                                            <div className="summary-content">
+                                                <div className="summary-stat">
+                                                    <span className="stat-value">{calculateTotalConferences()}</span>
+                                                    <span className="stat-label">Total Conferences</span>
+                                                </div>
+                                                <div className="summary-stat">
+                                                    <span className="stat-value">{calculateTotalAwards()}</span>
+                                                    <span className="stat-label">Total Awards</span>
+                                                </div>
+                                                <div className="summary-stat">
+                                                    <span className="stat-value">{calculateSuccessRate()}%</span>
+                                                    <span className="stat-label">Success Rate</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="form-group" style={{ marginTop: '1.5rem' }}>
+                                        <label htmlFor="experienceDetails">Additional Details (Optional)</label>
+                                        <textarea
+                                            className="form-control"
+                                            id="experienceDetails"
+                                            name="experienceDetails"
+                                            value={formData.experienceDetails}
+                                            onChange={handleInputChange}
+                                            placeholder="Any specific achievements, leadership roles, or memorable experiences you'd like to share..."
+                                            rows="4"
+                                        />
+                                    </div>
+                                </div>
+                            )}
+
+                            <button type="submit" className="submit-btn" disabled={loading}>
+                                {loading ? 'Submitting...' : 'Submit Registration'}
+                            </button>
+                        </form>
+                    </div>
+
+                    {loading && (
+                        <div className="loading-overlay">
+                            <div className="loading-spinner"></div>
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<RegistrationForm />);
+    </script>
+</body>
+
+</html>

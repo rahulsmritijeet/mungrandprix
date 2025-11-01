@@ -1,0 +1,2973 @@
+{
+    "UNGA": [
+        {
+            "name": "Afghanistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Albania",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Algeria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Andorra",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Angola",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Antigua and Barbuda",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Argentina",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Armenia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Australia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Austria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Azerbaijan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bahamas",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bahrain",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bangladesh",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Barbados",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belarus",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belgium",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belize",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Benin",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bhutan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bolivia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bosnia and Herzegovina",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Botswana",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Brazil",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Brunei",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bulgaria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Burkina Faso",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Burundi",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cabo Verde",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cambodia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cameroon",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Canada",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Central African Republic",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Chad",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Chile",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "China",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Colombia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Comoros",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Congo",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Costa Rica",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Croatia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cuba",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cyprus",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Czech Republic",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Democratic Republic of Congo",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Denmark",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Djibouti",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Dominica",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Dominican Republic",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ecuador",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Egypt",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "El Salvador",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Equatorial Guinea",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Eritrea",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Estonia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Eswatini",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ethiopia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Fiji",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Finland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "France",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Gabon",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Gambia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Georgia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Germany",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ghana",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Greece",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Grenada",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Guatemala",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Guinea",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Guinea-Bissau",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Guyana",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Haiti",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Honduras",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Hungary",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Iceland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "India",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Indonesia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Iran",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Iraq",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ireland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Israel",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Italy",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ivory Coast",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Jamaica",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Japan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Jordan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kazakhstan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kenya",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kiribati",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kuwait",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kyrgyzstan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Laos",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Latvia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Lebanon",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Lesotho",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Liberia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Libya",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Liechtenstein",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Lithuania",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Luxembourg",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Madagascar",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malawi",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malaysia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Maldives",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mali",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malta",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Marshall Islands",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mauritania",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mauritius",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mexico",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Micronesia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Moldova",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Monaco",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mongolia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Montenegro",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Morocco",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mozambique",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Myanmar",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Namibia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nauru",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nepal",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Netherlands",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "New Zealand",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nicaragua",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Niger",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nigeria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "North Korea",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "North Macedonia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Norway",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Oman",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Pakistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Palau",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Palestine",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Panama",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Papua New Guinea",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Paraguay",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Peru",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Philippines",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Poland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Portugal",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Qatar",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Romania",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Russia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Rwanda",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Saint Kitts and Nevis",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Saint Lucia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Saint Vincent and the Grenadines",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Samoa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "San Marino",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sao Tome and Principe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Saudi Arabia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Senegal",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Serbia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Seychelles",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sierra Leone",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Singapore",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Slovakia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Slovenia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Solomon Islands",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Somalia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "South Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "South Korea",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "South Sudan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Spain",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sri Lanka",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sudan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Suriname",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sweden",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Switzerland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Syria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Tajikistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Tanzania",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Thailand",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Timor-Leste",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Togo",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Tonga",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Trinidad and Tobago",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Tunisia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Turkey",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Turkmenistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Tuvalu",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Uganda",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ukraine",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Arab Emirates",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Kingdom",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United States",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Uruguay",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Uzbekistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Vanuatu",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Venezuela",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Vietnam",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Yemen",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Zambia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Zimbabwe",
+            "status": "Available",
+            "delegate": null
+        }
+    ],
+    "UNSC": [
+        {
+            "name": "China",
+            "type": "Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "France",
+            "type": "Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Russia",
+            "type": "Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Kingdom",
+            "type": "Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United States",
+            "type": "Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Algeria",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ecuador",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Guyana",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Japan",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malta",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mozambique",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Republic of Korea",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sierra Leone",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Slovenia",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Switzerland",
+            "type": "Non-Permanent",
+            "status": "Available",
+            "delegate": null
+        }
+    ],
+    "UNHRC": [
+        {
+            "name": "Algeria",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Benin",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cameroon",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Eritrea",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Gabon",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Gambia",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ivory Coast",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kenya",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malawi",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Morocco",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Senegal",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Somalia",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "South Africa",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bangladesh",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "China",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "India",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Indonesia",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Japan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kazakhstan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kuwait",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kyrgyzstan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malaysia",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Maldives",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Pakistan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Qatar",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Arab Emirates",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Vietnam",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Czech Republic",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Georgia",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Lithuania",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Montenegro",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Romania",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ukraine",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Argentina",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bolivia",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Chile",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Costa Rica",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cuba",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Honduras",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mexico",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Paraguay",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belgium",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Finland",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "France",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Germany",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Luxembourg",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Kingdom",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        }
+    ],
+    "UNCSW": [
+        {
+            "name": "Algeria",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cameroon",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Egypt",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ghana",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kenya",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Liberia",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Morocco",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nigeria",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Senegal",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "South Africa",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Tanzania",
+            "region": "Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Afghanistan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Australia",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bangladesh",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "China",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "India",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Iran",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Japan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Jordan",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Lebanon",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malaysia",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mongolia",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "New Zealand",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Philippines",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Republic of Korea",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Saudi Arabia",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Thailand",
+            "region": "Asia-Pacific",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Armenia",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Estonia",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Poland",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Russia",
+            "region": "Eastern Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Brazil",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Colombia",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Costa Rica",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Dominican Republic",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mexico",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nicaragua",
+            "region": "Latin America",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Austria",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belgium",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Canada",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Denmark",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Germany",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ireland",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Israel",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Spain",
+            "region": "Western Europe",
+            "status": "Available",
+            "delegate": null
+        }
+    ],
+    "WHO": [
+        {
+            "name": "Afghanistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Albania",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Algeria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Andorra",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Angola",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Argentina",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Armenia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Australia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Austria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Azerbaijan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bahamas",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bahrain",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bangladesh",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Barbados",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belarus",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belgium",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Belize",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Benin",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bhutan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bolivia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Brazil",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Brunei",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Bulgaria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cambodia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cameroon",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Canada",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Chile",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "China",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Colombia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cook Islands",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Costa Rica",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Croatia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cuba",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Cyprus",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Czech Republic",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Denmark",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Egypt",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Finland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "France",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Germany",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ghana",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Greece",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "India",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Indonesia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Iran",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Iraq",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Ireland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Israel",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Italy",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Japan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Jordan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kenya",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Kuwait",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Malaysia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Mexico",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Netherlands",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "New Zealand",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Nigeria",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Niue",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Norway",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Pakistan",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Palestine",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Peru",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Philippines",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Poland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Portugal",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Qatar",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Russia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Saudi Arabia",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Singapore",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "South Africa",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Spain",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sri Lanka",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Sweden",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Switzerland",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Thailand",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Turkey",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Arab Emirates",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United Kingdom",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "United States",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Vietnam",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Yemen",
+            "status": "Available",
+            "delegate": null
+        },
+        {
+            "name": "Zimbabwe",
+            "status": "Available",
+            "delegate": null
+        }
+    ],
+    "MOM": {
+        "auror": [
+            {
+                "name": "Harry Potter",
+                "position": "Head Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kingsley Shacklebolt",
+                "position": "Senior Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Nymphadora Tonks",
+                "position": "Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Alastor Moody",
+                "position": "Retired Consultant",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ron Weasley",
+                "position": "Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "John Dawlish",
+                "position": "Senior Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Gawain Robards",
+                "position": "Office Head",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Proudfoot",
+                "position": "Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Savage",
+                "position": "Auror",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Williamson",
+                "position": "Junior Auror",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "mysteries": [
+            {
+                "name": "Croaker",
+                "division": "Time Chamber",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Bode",
+                "division": "Hall of Prophecy",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Augustus Rookwood",
+                "division": "Brain Room",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Unspeakable #7",
+                "division": "Death Chamber",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Unspeakable #12",
+                "division": "Love Chamber",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Unspeakable #23",
+                "division": "Space Chamber",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Saul Croaker",
+                "division": "Head Unspeakable",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Unspeakable #45",
+                "division": "Thought Chamber",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Unspeakable #67",
+                "division": "Hall of Prophecy",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Unspeakable #89",
+                "division": "Time Research",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "law": [
+            {
+                "name": "Amelia Bones",
+                "department": "Department Head",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Bartemius Crouch Sr.",
+                "department": "Former Head",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Pius Thicknesse",
+                "department": "Department Head",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Mafalda Hopkirk",
+                "department": "Improper Use Office",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Perkins",
+                "department": "Misuse of Artifacts",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Arthur Weasley",
+                "department": "Muggle Protection",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Bob Ogden",
+                "department": "Law Squad",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Tiberius Ogden",
+                "department": "Wizengamot Admin",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Dolores Umbridge",
+                "department": "Senior Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Albert Runcorn",
+                "department": "Investigation",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "games": [
+            {
+                "name": "Ludovic Bagman",
+                "sport": "Department Head",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Bertha Jorkins",
+                "sport": "Assistant",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ali Bashir",
+                "sport": "Flying Carpets",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Hassan Mostafa",
+                "sport": "Quidditch Referee",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Royston Idlewind",
+                "sport": "League Manager",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Zamira Gulch",
+                "sport": "Broom Control",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Darren O'Hare",
+                "sport": "Gobstones",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Josephina Flint",
+                "sport": "Duelling",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Hamish MacFarlan",
+                "sport": "Quidditch Supplies",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Cuthbert Mockridge",
+                "sport": "Goblin Liaison",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "wizengamot": [
+            {
+                "name": "Albus Dumbledore",
+                "position": "Chief Warlock",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Cornelius Fudge",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Dolores Umbridge",
+                "position": "Senior Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Griselda Marchbanks",
+                "position": "Elder",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Tiberius Ogden",
+                "position": "Elder",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Amelia Bones",
+                "position": "Department Head",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Elphias Doge",
+                "position": "Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Augusta Longbottom",
+                "position": "Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Bartemius Crouch Sr.",
+                "position": "Former Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Percy Weasley",
+                "position": "Junior Assistant",
+                "status": "Available",
+                "delegate": null
+            }
+        ]
+    },
+    "AIPPM": {
+        "bjp": [
+            {
+                "name": "Narendra Modi",
+                "position": "Prime Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Amit Shah",
+                "position": "Home Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Rajnath Singh",
+                "position": "Defence Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Nirmala Sitharaman",
+                "position": "Finance Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "J.P. Nadda",
+                "position": "Party President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Yogi Adityanath",
+                "position": "UP Chief Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "B.S. Yediyurappa",
+                "position": "Karnataka Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Himanta Biswa Sarma",
+                "position": "Assam CM",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Shivraj Singh Chouhan",
+                "position": "MP Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Piyush Goyal",
+                "position": "Commerce Minister",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "inc": [
+            {
+                "name": "Rahul Gandhi",
+                "position": "Party Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Sonia Gandhi",
+                "position": "Former President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Priyanka Gandhi",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Mallikarjun Kharge",
+                "position": "Party President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Shashi Tharoor",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "P. Chidambaram",
+                "position": "Senior Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kapil Sibal",
+                "position": "Former Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Jairam Ramesh",
+                "position": "Spokesperson",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ashok Gehlot",
+                "position": "Rajasthan CM",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Sachin Pilot",
+                "position": "Rajasthan Leader",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "aap": [
+            {
+                "name": "Arvind Kejriwal",
+                "position": "Party Convener",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Manish Sisodia",
+                "position": "Deputy CM",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Bhagwant Mann",
+                "position": "Punjab CM",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Satyendar Jain",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Atishi Marlena",
+                "position": "MLA",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Raghav Chadha",
+                "position": "RS Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Sanjay Singh",
+                "position": "RS Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Gopal Rai",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Durgesh Pathak",
+                "position": "MLA",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Somnath Bharti",
+                "position": "MLA",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "tmc": [
+            {
+                "name": "Mamata Banerjee",
+                "position": "Party Chief & CM",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Abhishek Banerjee",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Derek O'Brien",
+                "position": "RS Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Mahua Moitra",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Sukhendu Sekhar Ray",
+                "position": "RS Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Firhad Hakim",
+                "position": "Mayor",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Partha Chatterjee",
+                "position": "Secretary General",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Subrata Bakshi",
+                "position": "State President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kakoli Ghosh Dastidar",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Saugata Roy",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "dmk": [
+            {
+                "name": "M.K. Stalin",
+                "position": "Chief Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Udhayanidhi Stalin",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kanimozhi",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "T.R. Baalu",
+                "position": "Parliamentary Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Duraimurugan",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "E.V. Velu",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Palanivel Thiaga Rajan",
+                "position": "Finance Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "K. Ponmudy",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Senthil Balaji",
+                "position": "Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ma Subramanian",
+                "position": "Health Minister",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "sp": [
+            {
+                "name": "Akhilesh Yadav",
+                "position": "Party President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Mulayam Singh Yadav",
+                "position": "Founder",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Azam Khan",
+                "position": "Senior Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ram Gopal Yadav",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Jaya Bachchan",
+                "position": "RS Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Dimple Yadav",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Shivpal Singh Yadav",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Naresh Uttam",
+                "position": "State President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Swami Prasad Maurya",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Rajendra Chaudhary",
+                "position": "Spokesperson",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "bsp": [
+            {
+                "name": "Mayawati",
+                "position": "Party President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Satish Chandra Mishra",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Akash Anand",
+                "position": "National Coordinator",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Naseemuddin Siddiqui",
+                "position": "Former Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Lalji Verma",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ramachal Rajbhar",
+                "position": "RS Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Girish Chandra",
+                "position": "RS Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Danish Ali",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ritesh Pandey",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kunwar Danish Ali",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "ncp": [
+            {
+                "name": "Sharad Pawar",
+                "position": "Party President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Ajit Pawar",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Supriya Sule",
+                "position": "MP",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Praful Patel",
+                "position": "Senior Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Chhagan Bhujbal",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Jayant Patil",
+                "position": "State President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Dilip Walse Patil",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Anil Deshmukh",
+                "position": "Former Minister",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Nawab Malik",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Jitendra Awhad",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "cpi": [
+            {
+                "name": "Sitaram Yechury",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Brinda Karat",
+                "position": "Politburo Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "D. Raja",
+                "position": "General Secretary CPI",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Prakash Karat",
+                "position": "Former Gen Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Mohammed Salim",
+                "position": "Politburo Member",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Subhashini Ali",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Hannan Mollah",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Nilotpal Basu",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "K. Balakrishnan",
+                "position": "State Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "M.Y. Tarigami",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            }
+        ],
+        "tdp": [
+            {
+                "name": "N. Chandrababu Naidu",
+                "position": "Party President",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Nara Lokesh",
+                "position": "General Secretary",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kinjarapu Atchannaidu",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Yanamala Ramakrishnudu",
+                "position": "Senior Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Kala Venkata Rao",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Payyavula Keshav",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Somireddy Chandramohan Reddy",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Buddha Venkanna",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Varla Ramaiah",
+                "position": "Leader",
+                "status": "Available",
+                "delegate": null
+            },
+            {
+                "name": "Pattabhi Ram",
+                "position": "Spokesperson",
+                "status": "Available",
+                "delegate": null
+            }
+        ]
+    }
+}

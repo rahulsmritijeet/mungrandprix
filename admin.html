@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUN Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ MUN Admin Panel</h1>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalRegistrations">0</div>
+                    <div class="stat-label">Total Registrations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pendingAllotments">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="allottedCount">0</div>
+                    <div class="stat-label">Allotted</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="confirmedCount">0</div>
+                    <div class="stat-label">Confirmed</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search by name, email, or institution..." onkeyup="filterTable()">
+            <select id="statusFilter" onchange="filterTable()">
+                <option value="">All Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Allotted">Allotted</option>
+                <option value="Confirmed">Confirmed</option>
+            </select>
+            <select id="committeeFilter" onchange="filterTable()">
+                <option value="">All Committees</option>
+                <option value="UNGA DISEC">UNGA DISEC</option>
+                <option value="UNGA SPECPOL">UNGA SPECPOL</option>
+                <option value="UNSC">UNSC</option>
+                <option value="UNHRC">UNHRC</option>
+                <option value="NATO">NATO</option>
+                <option value="G20">G20</option>
+                <option value="AIPPM">AIPPM</option>
+                <option value="MOM">MOM</option>
+                <option value="IP">IP</option>
+            </select>
+            <button class="export-btn" onclick="exportToCSV()">📥 Export CSV</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Institution</th>
+                        <th>MUNs</th>
+                        <th>Portfolio</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script src="portfolioSystem.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

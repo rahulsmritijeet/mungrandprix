@@ -1,0 +1,5 @@
+In this zip folder go to cmd and run 
+dp backend
+npm run dev
+
+now open index.html the registration portal would work! 

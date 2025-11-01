@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculator — Press = for a surprise</title>
+  <style>
+    :root{--bg:#0b0f14;--panel:#0f1720;--accent:#00d4ff;--btn:#111827;--txt:#e6eef6}
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+    body{margin:0;background:linear-gradient(180deg,#061018 0%, #0b1220 100%);color:var(--txt);height:100vh;display:flex;align-items:center;justify-content:center}
+    .calc{width:320px;background:linear-gradient(180deg,var(--panel),#0b1220);padding:18px;border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,.6)}
+    .display{height:64px;background:#020409;border-radius:10px;padding:12px;color:var(--txt);font-size:20px;display:flex;flex-direction:column;justify-content:center}
+    .expr{font-size:18px;opacity:.85;word-break:break-all}
+    .res{font-size:14px;opacity:.6}
+    .pad{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+    button{height:52px;border-radius:10px;border:0;background:linear-gradient(180deg,#0f1723,#08121a);color:var(--txt);font-weight:600;font-size:18px;cursor:pointer}
+    .op{background:linear-gradient(180deg,#13202a,#0b161d)}
+    .eq{background:linear-gradient(180deg,#00bcd4,#0092a8);color:#021017}
+    .wide{grid-column:span 2}
+    footer{margin-top:12px;text-align:center;color:rgba(255,255,255,.25);font-size:12px}
+
+    /* Overlay for rickroll */
+    .overlay{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.95);z-index:9999}
+    .player{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+    .player iframe{width:100vw;height:100vh;border:0;pointer-events:none}
+    /* prevent selecting */
+    .overlay, .overlay *{user-select:none}
+  </style>
+</head>
+<body>
+  <div class="calc" role="application" aria-label="Calculator">
+    <div class="display">
+      <div id="expr" class="expr">0</div>
+      <div id="res" class="res">&nbsp;</div>
+    </div>
+    <div class="pad" aria-hidden="false">
+      <button data-val="7">7</button>
+      <button data-val="8">8</button>
+      <button data-val="9">9</button>
+      <button class="op" data-val="/">÷</button>
+
+      <button data-val="4">4</button>
+      <button data-val="5">5</button>
+      <button data-val="6">6</button>
+      <button class="op" data-val="*">×</button>
+
+      <button data-val="1">1</button>
+      <button data-val="2">2</button>
+      <button data-val="3">3</button>
+      <button class="op" data-val="-">−</button>
+
+      <button data-val="0">0</button>
+      <button data-val=".">.</button>
+      <button id="clear">C</button>
+      <button class="op" data-val="+">+</button>
+
+      <button id="percent">%</button>
+      <button id="paren">( )</button>
+      <button id="back">⌫</button>
+      <button id="equals" class="eq">=</button>
+    </div>
+    <footer>Press <strong>=</strong> for a surprise. (Hint: be ready to laugh or rage.)</footer>
+  </div>
+
+  <!-- Overlay with YouTube embed. Update VIDEO_ID below in the code if you want another video. -->
+  <div id="overlay" class="overlay" tabindex="-1" aria-hidden="true">
+    <div class="player" id="player" oncontextmenu="return false;">
+      <!-- YouTube embed: autoplay=1, mute=1, loop=1, controls=0, modestbranding=1, playlist=VIDEO_ID (needed for loop) -->
+      <iframe id="yt" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&loop=1&playlist=dQw4w9WgXcQ&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Simple calculator logic
+    const exprEl = document.getElementById('expr');
+    const resEl = document.getElementById('res');
+    let expr = '';
+    let parenOpen = 0;
+
+    function updateDisplay(){
+      exprEl.textContent = expr || '0';
+    }
+
+    document.querySelectorAll('button[data-val]').forEach(b=>{
+      b.addEventListener('click',()=>{
+        expr += b.dataset.val;
+        updateDisplay();
+      })
+    })
+
+    document.getElementById('clear').addEventListener('click',()=>{expr='';parenOpen=0;resEl.textContent='';updateDisplay();});
+    document.getElementById('back').addEventListener('click',()=>{expr=expr.slice(0,-1);updateDisplay();});
+
+    document.getElementById('paren').addEventListener('click',()=>{
+      if(parenOpen%2===0){expr += '(';parenOpen++;}else{expr += ')';parenOpen--;}
+      updateDisplay();
+    })
+
+    document.getElementById('percent').addEventListener('click',()=>{expr += '/100';updateDisplay();});
+
+    // Evaluate safely: allow only digits, operators and parentheses and dot
+    function safeEval(s){
+      if(!s) return '';
+      if(/[^0-9+\-*/(). %]/.test(s)) throw new Error('Invalid characters');
+      // Replace multiple operators pitfalls
+      return Function('return ('+s+')')();
+    }
+
+    // Overlay logic for rickroll
+    const overlay = document.getElementById('overlay');
+    const yt = document.getElementById('yt');
+
+    function showOverlay(){
+      overlay.style.display = 'flex';
+      overlay.setAttribute('aria-hidden','false');
+      // prevent right-click and key events from stopping video
+      document.addEventListener('contextmenu', prevent);
+      document.addEventListener('keydown', preventKeys, true);
+      // keep reloading the iframe every 10s as resilience (makes it harder to stop via accidental pause)
+      overlay._reloadInterval = setInterval(()=>{
+        const src = yt.src;
+        yt.src = src; // reload
+      }, 10000);
+    }
+
+    function prevent(e){ e.preventDefault(); }
+    function preventKeys(e){
+      // block space, escape, k (youtube pause) and media keys
+      const blocked = [' ','Escape','k','MediaPlayPause'];
+      if(blocked.includes(e.key)) e.preventDefault();
+    }
+
+    function hideOverlay(){
+      overlay.style.display='none';
+      overlay.setAttribute('aria-hidden','true');
+      document.removeEventListener('contextmenu', prevent);
+      document.removeEventListener('keydown', preventKeys, true);
+      clearInterval(overlay._reloadInterval);
+    }
+
+    // equals button behavior: evaluate then show overlay
+    document.getElementById('equals').addEventListener('click',()=>{
+      try{
+        const value = safeEval(expr);
+        resEl.textContent = '= ' + value;
+      }catch(err){
+        resEl.textContent = 'Error';
+      }
+      // show the prank overlay
+      showOverlay();
+    });
+
+    // Extra: clicking anywhere on the calculator will not close the overlay; overlay blocks input
+    overlay.addEventListener('click', (e)=>{
+      // swallow clicks so user can't interact
+      e.stopPropagation();
+      e.preventDefault();
+    });
+
+    // Prevent focus leaving overlay easily
+    window.addEventListener('blur', ()=>{
+      // if overlay is visible, try to refocus
+      if(overlay.style.display==='flex') window.focus();
+    });
+
+    // Notes for dev: modern browsers require videos to be muted for autoplay to work; this embed sets mute=1.
+    // You can change the video by replacing the YouTube video ID (currently dQw4w9WgXcQ) in the iframe src and playlist.
+
+    // Initialize
+    updateDisplay();
+  </script>
+</body>
+</html>
