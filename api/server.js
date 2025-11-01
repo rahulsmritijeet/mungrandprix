@@ -1,4 +1,4 @@
-// server.js - Fixed to show ONLY ONE allocated portfolio in the email
+
 
 const express = require('express');
 const nodemailer = require('nodemailer');
